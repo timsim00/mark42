@@ -42,7 +42,6 @@ export default class AppRoot extends HTMLElement {
     // ROUTER page.js
     window.addEventListener('pageFn:is-loaded', (evt) => {
       console.log('Page:is-loaded', window.location.pathname)
-      document.querySelector('app-root').modules.pageFn
       this.router = evt.detail.module.default
     }, false)
 
@@ -84,7 +83,7 @@ export default class AppRoot extends HTMLElement {
     // every mutator better return state or there's gonna be trouble
     return {
       SHOW_VIEW: (state, res) => {
-        state.app.view.next = res // Object.assign(state.app.view.next, res) // status: ready
+        state.app.view.next = res
         return state
       },
       SET_VIEW: (state, res) => {
