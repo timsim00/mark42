@@ -1,0 +1,46 @@
+{
+  "name": "mark42",
+  "version": "1.0.0",
+  "description": "Frameworkless, buildless, single-page, micro-frontend, web component pattern",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "PORT=3002 node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timsim00/mark42.git"
+  },
+  "keywords": [
+    "javascript",
+    "lazy-loading",
+    "web-components",
+    "micro-frontends",
+    "microservices-architecture",
+    "scalable",
+    "modular",
+    "web-app",
+    "frameworkless",
+    "methodology",
+    "buildless",
+    "single-page-app",
+    "single-file-components",
+    "boilerplate-front-end",
+    "starter-kit",
+    "responsive",
+    "htmlelements",
+    "static-site"
+  ],
+  "author": "Drew Simmons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timsim00/mark42/issues"
+  },
+  "homepage": "https://github.com/timsim00/mark42#readme",
+  "devDependencies": {
+    "finalhandler": "^1.1.1",
+    "http": "0.0.0",
+    "serve-static": "^1.13.2"
+  },
+  "dependencies": {}
+}

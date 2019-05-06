@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark 42</title>
+  <script src="/assets/apploader.js"></script>
+  <script defer>
+    window.loadMicroApp( '/components/core/app-root.js' )
+    .then( ( appName ) => {
+      console.log('loaded app name:', appName)
+    })
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');
+    });
+  </script>
+  <style>
+    html,
+    body,
+    #approot,
+    .page {
+      height: 100%;
+    }
+
+    body, #approot {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="avenir">
+  <app-root id="approot"></app-root>
+</body>
+</html>
