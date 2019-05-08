@@ -284,6 +284,9 @@ window.loadMicroApp = ( function() {
             this.fileName = fileName
             this.elementName = elementName
             this._className = module.default.name
+            this._createStore = (actions, mutators, subscribers, initialState = {}, notify, namespace, debug) => {
+              return new Slots(actions, mutators, subscribers, initialState, notify, namespace, debug)
+            }
             this.selectorNoRoot = `${this.elementName} div#${this._className}_template`
             this.selectorRoot = `#${this._className}_template`
             this.selector = ''

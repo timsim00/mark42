@@ -34,7 +34,7 @@ Help make it better (criticism and PR's welcome).
 - No framework
 - No build step (just cmd-R to reload)
 - Micro-frontend in nature (as opposed to monolithic)
-- Prehensile modules (send the minimum bytes to client on load, send non-core modules as needed)
+- Prehensile modules (send the minimum bytes to client on load, send non-essential modules as needed)
 - Views can have multiple templates (eg. Loading template and main template)
 - Modules can
   - be single-file (eg. see core-about) inspired by [this article](https://medium.com/content-uneditable/implementing-single-file-web-components-22adeaa0cd17),

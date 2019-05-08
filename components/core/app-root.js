@@ -2,6 +2,7 @@
 The app-root module handles
   layout,
   orchestration,
+  composition,
   app startup,
   module/view loading,
   common API logic,
