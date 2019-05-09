@@ -209,8 +209,19 @@ export default class AppRoot extends HTMLElement {
 
   allModulesLoaded(evt) {
     console.log('allModulesLoaded')
-    this.initRouter(evt) // setup routes, *before* notify()!
-    this.store.notify() // send out initial state to all subscribers
+    let delay = [10,100,500,500,500,1000,1000,1000,5000]
+    let delayTurn = 0
+    const routerInit = () => {
+      if (this.router) {
+        this.initRouter(evt) // setup routes, *before* notify()!
+        this.store.notify() // send out initial state to all subscribers
+      } else {
+        if (delayTurn < delay.length-1) { delayTurn++ }
+        setTimeout(routerExists, delay[delayTurn])
+      }
+    }
+
+    routerInit()
 
   }
 

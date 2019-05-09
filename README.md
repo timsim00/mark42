@@ -71,4 +71,4 @@ Needs work:
 - [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) (esp. when using tachyons within shadowdom)
 - Firefox/safari 'app ready' event
 - Experiment with bundling core components/assets
-- Support for older browsers
+- [Support](https://github.com/WebReflection/document-register-element) for older browsers

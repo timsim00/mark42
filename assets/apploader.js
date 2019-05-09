@@ -368,7 +368,6 @@ window.loadMicroApp = ( function() {
               eleRoot = document.querySelector(this.elementName)
             }
             if (style !== false) {
-              console.log('this.style.cloneNode', this.style.cloneNode)
               eleRoot.appendChild( this.styleClone ) //.cloneNode( true ) )
             }
             if (wrapper !== false) {
