@@ -4,7 +4,11 @@ var http = require('http')
 var serveStatic = require('serve-static')
 var fs = require('fs')
 
-var serve = serveStatic(__dirname, {fallthrough: true, 'index': ['index.html']})
+var serve = serveStatic(__dirname, {
+  fallthrough: true,
+  'index': ['index.html'],
+  maxAge: '1d'
+})
 
 var port = process.env.PORT || 8787
 

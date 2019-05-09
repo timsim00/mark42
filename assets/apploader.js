@@ -371,31 +371,37 @@ window.loadMicroApp = ( function() {
               console.log('this.style.cloneNode', this.style.cloneNode)
               eleRoot.appendChild( this.styleClone ) //.cloneNode( true ) )
             }
-            if (listeners !== false) { this._attachListeners() }
             if (wrapper !== false) {
-              wrapper = document.createElement('div')
-              wrapper.id = this.wrapperId
-              eleRoot.appendChild(wrapper)
+              let container = document.createElement('div')
+              container.id = this.wrapperId
+              eleRoot.appendChild(container)
             }
             if (template !== false) {
-              let wrapper
+              let wrapperEl
               if (this.shadowRoot) {
-                wrapper = eleRoot.querySelector(this.selector)
+                wrapperEl = eleRoot.querySelector(this.selector)
               } else {
-                wrapper = document.querySelector(this.selector)
+                wrapperEl = document.querySelector(this.selector)
               }
-              if (wrapper) {
-                wrapper.appendChild(fragment)
+              if (wrapperEl) {
+                wrapperEl.appendChild(fragment)
               } else {
                 eleRoot.appendChild(fragment)
               }
             }
+            if (listeners !== false) {
+              if (this.shadowRoot) {
+                this._attachListeners(this.shadowRoot)
+              } else {
+                this._attachListeners(this)
+              }
+            }
     			}
 
-    			_attachListeners() {
+    			_attachListeners(root) {
     				Object.entries( listeners ).forEach( ( [ event, listener ] ) => {
-    					this.addEventListener( event, listener, false )
-    				} );
+    					root.addEventListener( event, listener, false )
+    				} )
     			}
 
           static get observedAttributes() {
