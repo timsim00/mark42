@@ -272,7 +272,8 @@ window.loadMicroApp = ( function() {
     } else if (contentType === 'unityComponent') {  // *** load unity file element
 
       // https://github.com/TheLarkInn/unity-component-specification
-      customElements.define(`${elementName}`,
+      console.log('defining element for:', fileName)
+      !customElements.get(`${elementName}`) && customElements.define(`${elementName}`,
         class extends HTMLElement {
 
           connectedCallback() {

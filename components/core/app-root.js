@@ -50,20 +50,12 @@ export default class AppRoot extends HTMLElement {
     window.addEventListener('module:is-loaded', (evt) => {this.moduleLoaded(evt)}, false)
 
     // ON LOAD
-    if (navigator.userAgent.toLowerCase().includes('chrome')) {
-      // this does not work in firefox/safari:
-      window.addEventListener('load', (evt) => {
-        console.log('load event fired');
+    window.addEventListener('modules:all-loaded', (evt) => {
+      setTimeout(() => {
+        console.log('modules:all-loaded');
         this.allModulesLoaded(evt)
-      }, false);
-    } else {
-      window.addEventListener('modules:all-loaded', (evt) => {
-        setTimeout(() => {
-          console.log('modules:all-loaded');
-          this.allModulesLoaded(evt)
-        },100) // yes, this is a horrible hack. better solutions welcome!
-      }, false)
-    }
+      },10) // yes, this is a horrible hack. better solutions welcome!
+    }, false)
   }
 
   get actions() {
@@ -209,19 +201,18 @@ export default class AppRoot extends HTMLElement {
 
   allModulesLoaded(evt) {
     console.log('allModulesLoaded')
-    let delay = [10,100,500,500,500,1000,1000,1000,5000]
-    let delayTurn = 0
-    const routerInit = () => {
+    const delay = [10,100,500,500,500,1000,1000,1000,5000]
+    const routerInit = (delay, delayTurn) => {
       if (this.router) {
         this.initRouter(evt) // setup routes, *before* notify()!
         this.store.notify() // send out initial state to all subscribers
       } else {
         if (delayTurn < delay.length-1) { delayTurn++ }
-        setTimeout(routerExists, delay[delayTurn])
+        setTimeout(routerInit, delay[delayTurn])
       }
     }
 
-    routerInit()
+    routerInit(delay, 0)
 
   }
 
