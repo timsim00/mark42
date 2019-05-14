@@ -34,7 +34,7 @@ export default class AppRoot extends HTMLElement {
     this.modules = {}
     this.elementList = []
     const {actions, mutators, initState} = this
-    this.store = this._createStore({debug: true, namespace: 'app', actions, mutators, initState,
+    this.store = this._createStore({debug: true, quiet: true, namespace: 'app', actions, mutators, initState,
       subscribers: [
         this.persistState
       ]
@@ -47,6 +47,7 @@ export default class AppRoot extends HTMLElement {
     }, false)
 
     this.remainingModules = AppRoot.import.slice(0)
+    this.isLoading = true
     window.addEventListener('module:is-loaded', (evt) => {this.moduleLoaded(evt)}, false)
 
     // ON LOAD
@@ -54,6 +55,7 @@ export default class AppRoot extends HTMLElement {
       Promise.resolve().then(() => { // next tick
         console.log('modules:all-loaded')
         this.initRouter(evt) // setup routes, *before* notify()!
+        this.store.quiet = false
         this.store.notify() // send out initial state to all subscribers
       })
     }, false)
@@ -197,6 +199,7 @@ export default class AppRoot extends HTMLElement {
     }
     this.dispatchEvent(new CustomEvent(`${name}:is-loaded`, {detail: {module}, bubbles: true, composed: true, cancelable: false}))
     if (this.remainingModules.length === 0) {
+      this.isLoading = false
       window.dispatchEvent(new CustomEvent(`modules:all-loaded`, {detail: {}, bubbles: true, composed: true, cancelable: false}))
     }
   }

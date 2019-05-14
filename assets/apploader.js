@@ -64,12 +64,13 @@ window.loadMicroApp = ( function() {
   // https://github.com/timsim00/slots
   class Slots { //nickname for a vending machine
     // TODO: make reactive?, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
-    constructor({actions, mutators, subscribers, initState, notify, namespace, debug}) {
+    constructor({actions, mutators, subscribers, initState, notify, namespace, debug = false, quiet = false}) {
       this.actions = {}
       this.mutators = {}
       this.subscribers = subscribers || []
       this.state = {}
-      this.debug = debug || false
+      this.debug = debug
+      this.quiet = quiet
       this.import({actions, mutators, initState, notify, namespace})
     }
     dispatch(action, payload) {
@@ -100,7 +101,8 @@ window.loadMicroApp = ( function() {
       }
     }
     notify(namespace) {
-      this.subscribers.forEach(subscriber => subscriber(this.state, namespace))
+      if (this.debug) {console.log(`notify ${namespace || ''} ${this.quiet}`)}
+      !this.quiet && this.subscribers.forEach(subscriber => subscriber(this.state, namespace))
     }
     import({namespace, actions, initState, mutators, notify}) {
       if (namespace && !this.state.hasOwnProperty(namespace)) {
@@ -264,8 +266,8 @@ window.loadMicroApp = ( function() {
       module.default.prototype.fileName = fileName
       module.default.prototype.elementName = elementName // same as localName
       module.default.prototype._className = module.default.name
-      module.default.prototype._createStore = (actions, mutators, subscribers, initialState = {}, notify, namespace, debug) => {
-        return new Slots(actions, mutators, subscribers, initialState, notify, namespace, debug)
+      module.default.prototype._createStore = (options) => {
+        return new Slots(options)
       }
       window.customElements.define(elementName, module.default) // TODO: attachShadow?
 
