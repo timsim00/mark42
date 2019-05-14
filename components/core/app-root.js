@@ -51,10 +51,11 @@ export default class AppRoot extends HTMLElement {
 
     // ON LOAD
     window.addEventListener('modules:all-loaded', (evt) => {
-      setTimeout(() => {
-        console.log('modules:all-loaded');
-        this.allModulesLoaded(evt)
-      },10) // yes, this is a horrible hack. better solutions welcome!
+      Promise.resolve().then(() => { // next tick
+        console.log('modules:all-loaded')
+        this.initRouter(evt) // setup routes, *before* notify()!
+        this.store.notify() // send out initial state to all subscribers
+      })
     }, false)
   }
 
@@ -169,7 +170,8 @@ export default class AppRoot extends HTMLElement {
     page('/app/:appName', (ctx,next)=>{console.log('router:5');next()}, parsePath, fetchView, showView)
     page('*', (ctx,next)=>{console.log('router:6');ctx.state.notfound = true; ctx.save(); next()}, parsePath, fetchView, showView, (ctx,next) => {
       console.log('notfound = false')
-      ctx.state.notfound = false; ctx.save();
+      ctx.state.notfound = false
+      ctx.save()
     })
 
     // TODO: browser back/foreward not working correctly
@@ -197,23 +199,6 @@ export default class AppRoot extends HTMLElement {
     if (this.remainingModules.length === 0) {
       window.dispatchEvent(new CustomEvent(`modules:all-loaded`, {detail: {}, bubbles: true, composed: true, cancelable: false}))
     }
-  }
-
-  allModulesLoaded(evt) {
-    console.log('allModulesLoaded')
-    const delay = [10,100,500,500,500,1000,1000,1000,5000]
-    const routerInit = (delay, delayTurn) => {
-      if (this.router) {
-        this.initRouter(evt) // setup routes, *before* notify()!
-        this.store.notify() // send out initial state to all subscribers
-      } else {
-        if (delayTurn < delay.length-1) { delayTurn++ }
-        setTimeout(routerInit, delay[delayTurn])
-      }
-    }
-
-    routerInit(delay, 0)
-
   }
 
   get initState() {
