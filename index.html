@@ -6,7 +6,7 @@
   <title>Mark 42</title>
   <script src="/assets/apploader.js"></script>
   <script defer>
-    window.loadMicroApp( '/components/core/app-root.js' )
+    window.loadMicroApp( {URL:'/components/core/app-root.js', rootPath:'/components/'} )
     .then( ( appName ) => {
       console.log('loaded app name:', appName)
     })

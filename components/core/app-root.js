@@ -150,7 +150,8 @@ export default class AppRoot extends HTMLElement {
 
       if (!this.elementList.includes(eleName.toLowerCase())) {
         const fileName = nextView.type === 'core' ? eleName : eleName.replace('app-','')
-        window.loadMicroApp( `/components/${nextView.type}/${fileName}.js` )
+        window.loadMicroApp( {URL:`/components/${nextView.type}/${fileName}.js`, rootPath:'/components/'} )
+        // window.loadMicroApp( `/components/${nextView.type}/${fileName}.js` )
         .then( ( elementName ) => {
           console.log('loaded module:', elementName)
           next()

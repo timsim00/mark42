@@ -174,8 +174,8 @@ window.loadMicroApp = ( function() {
     });
   }
 
-	function fetchAndParse( URL ) {
-		return fetch( URL ).then( ( response ) => {
+	function fetchAndParse( options ) {
+		return fetch( options.URL ).then( ( response ) => {
 			return response.text();
 		} ).then( ( content ) => {
 
@@ -185,19 +185,20 @@ window.loadMicroApp = ( function() {
 			const templates = head.querySelectorAll( 'template' )
 			const style = head.querySelector( 'style' )
 			const script = head.querySelector( 'script' )
-      const fileName = URL.substr(URL.lastIndexOf('/')+1)
+      const fileName = options.URL.substr(options.URL.lastIndexOf('/')+1)
 
 			return {
 				templates,
 				style,
 				script,
         content,
-        fileName
+        fileName,
+        options
 			};
 		});
 	}
 
-	function getSettings( { templates, style, script, content, fileName } ) {
+	function getSettings( { templates, style, script, content, fileName, options } ) {
 
 		function getListeners( settings ) {
       console.log('getListeners', settings)
@@ -218,7 +219,7 @@ window.loadMicroApp = ( function() {
       }
 		}
 
-    function unitySettings( module ) {
+    function unitySettings( module, options ) {
       // settings for unity file components
       const listeners = getListeners( module.default );
       const hooks = getHooks( module.default )
@@ -229,7 +230,8 @@ window.loadMicroApp = ( function() {
         hooks,
         module,
         contentType,
-        fileName
+        fileName,
+        options
       }
     }
 
@@ -246,19 +248,24 @@ window.loadMicroApp = ( function() {
         }
 
         if (contentType === 'unityComponent') {
-          return unitySettings(module)
+          return unitySettings(module, options)
         } else {
-          return { contentType, module, fileName }
+          return { contentType, module, fileName, options }
         }
       }
     )
 	}
 
-	function registerComponent( { templates, style, listeners, hooks, contentType, module, fileName } ) {
+	function registerComponent( { templates, style, listeners, hooks, contentType, module, fileName, options } ) {
     console.log('registerComponent', fileName, module.default.name)
 
     let elementName = module.default && module.default.elementName ? module.default.elementName.toLowerCase() : ''
     let fileExt = '.js'
+
+    // elementName && customElements.whenDefined(elementName)
+    // .then(() => {
+    //   window.dispatchEvent(new CustomEvent(`module:is-loaded`, {detail: {contentType, elementName, name: module.default.name, fileName, module}, bubbles: true, composed: true, cancelable: false}))
+    // })
 
     if (contentType === 'customElement') {  // *** load a non-single-file element
 
@@ -416,17 +423,18 @@ window.loadMicroApp = ( function() {
     let imports = module.default && module.default.import ? module.default.import : []
     imports.forEach(name => {
       // TODO: skip if already loaded
-      let componentPath = name.startsWith('core') ? '/components/core/' : '/components/app/'
-      window.loadMicroApp( `${componentPath}${name}${fileExt}` )
+      let componentPath = options.rootPath
+      componentPath += name.startsWith('core') ? 'core/' : (name.includes('/') ? '' : 'app/')
+      window.loadMicroApp( {URL:`${componentPath}${name}${fileExt}`, rootPath:options.rootPath} )
     })
     window.dispatchEvent(new CustomEvent(`module:is-loaded`, {detail: {contentType, elementName, name: module.default.name, fileName, module}, bubbles: true, composed: true, cancelable: false}))
 
     return elementName
 	}
 
-	function loadComponent( URL ) {
+	function loadComponent( options = {} ) {
     // inspired by: https://medium.com/content-uneditable/implementing-single-file-web-components-22adeaa0cd17
-		return fetchAndParse( URL ).then( getSettings ).then( registerComponent );
+		return fetchAndParse( options ).then( getSettings ).then( registerComponent );
 	}
 
 	return loadComponent;
