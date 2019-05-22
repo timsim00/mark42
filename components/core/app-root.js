@@ -15,7 +15,7 @@ export default class AppRoot extends HTMLElement {
     return 'app-root'
   }
   static get import() {
-    return ['corePage', 'core-nav', 'core-header', 'core-main', 'core-landing', 'core-footer']
+    return ['core/corePage', 'core/core-nav', 'core/core-header', 'core/core-main', 'core/core-landing', 'core/core-footer']
   }
 
   constructor() {
@@ -151,7 +151,6 @@ export default class AppRoot extends HTMLElement {
       if (!this.elementList.includes(eleName.toLowerCase())) {
         const fileName = nextView.type === 'core' ? eleName : eleName.replace('app-','')
         window.loadMicroApp( {URL:`/components/${nextView.type}/${fileName}.js`, rootPath:'/components/'} )
-        // window.loadMicroApp( `/components/${nextView.type}/${fileName}.js` )
         .then( ( elementName ) => {
           console.log('loaded module:', elementName)
           next()
@@ -187,14 +186,14 @@ export default class AppRoot extends HTMLElement {
 
 
   moduleLoaded(evt) {
-    const {elementName, name, fileName, module, contentType} = evt.detail
-    console.log('module:is-loaded: ', 'fileName:', fileName, contentType, 'elementName:', elementName, 'name:', name, 'module:', module)
+    const {elementName, name, fileName, module, contentType, importName} = evt.detail
+    console.log('module:is-loaded: ', 'importName', importName, 'fileName:', fileName, contentType, 'elementName:', elementName, 'name:', name, 'module:', module)
 
     if (elementName) {
       this.elementList.push(elementName)
     }
     this.modules[module.default.name] = module.default
-    const pos = this.remainingModules.indexOf(fileName.split('.')[0])  // remove extension
+    const pos = this.remainingModules.indexOf(importName)
     if (pos > -1) {
       this.remainingModules.splice(pos, 1);
     }

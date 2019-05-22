@@ -257,7 +257,7 @@ window.loadMicroApp = ( function() {
 	}
 
 	function registerComponent( { templates, style, listeners, hooks, contentType, module, fileName, options } ) {
-    console.log('registerComponent', fileName, module.default.name)
+    console.log('registerComponent', fileName, module.default.name, options.importName)
 
     let elementName = module.default && module.default.elementName ? module.default.elementName.toLowerCase() : ''
     let fileExt = '.js'
@@ -421,13 +421,11 @@ window.loadMicroApp = ( function() {
 
     // load dependency modules
     let imports = module.default && module.default.import ? module.default.import : []
-    imports.forEach(name => {
+    imports.forEach(importName => {
       // TODO: skip if already loaded
-      let componentPath = options.rootPath
-      componentPath += name.startsWith('core') ? 'core/' : (name.includes('/') ? '' : 'app/')
-      window.loadMicroApp( {URL:`${componentPath}${name}${fileExt}`, rootPath:options.rootPath} )
+      window.loadMicroApp( {URL:`${options.rootPath}${importName}${fileExt}`, rootPath:options.rootPath, importName} )
     })
-    window.dispatchEvent(new CustomEvent(`module:is-loaded`, {detail: {contentType, elementName, name: module.default.name, fileName, module}, bubbles: true, composed: true, cancelable: false}))
+    window.dispatchEvent(new CustomEvent(`module:is-loaded`, {detail: {contentType, elementName, name: module.default.name, fileName, module, importName:options.importName}, bubbles: true, composed: true, cancelable: false}))
 
     return elementName
 	}
