@@ -119,7 +119,7 @@ export default class AppRoot extends HTMLElement {
     const ext = '.js'
 
     /*
-    * For routes hit via url, and not from within the app, setup the data needed to fetch.
+    * For routes hit via url, vs from within the app, setup the data needed to fetch.
     */
     const parsePath = (ctx, next) => {
       console.log('parsePath', ctx.pathname, this.store.state.app.view.next)
@@ -131,25 +131,21 @@ export default class AppRoot extends HTMLElement {
       let nextView
       if (ctx.pathname === '/') {
         nextView = {
-          // route: '/',
           view: 'view/landing',
-          elementName: 'core-landing' // `core-${this.store.state.app.view.default}`
+          elementName: 'core-landing' // `core-${this.store.state.app.view.default}` // 
         }
       } else if (ctx.pathname.includes('/about')) {
         nextView = {
-          // route: '/about',
           view: 'view/about',
           elementName: 'core-about'
         }
       } else if (ctx.pathname.includes('/app/')) {
         nextView = {
-          // route: `/app/${ctx.params.appName}`,
-          view: `other/${ctx.params.appName}`, // has to be 1-1 correlation btw route and file location for deep linking
+          view: `other/${ctx.params.appName}`, // has to be 1-1 correlation btw route and file location for deep linking, unless your route will match your file system paths
           elementName: `app-${ctx.params.appName}`
         }
       } else {
         nextView = {
-          // route: ctx.path,
           view: 'view/404',
           elementName: 'core-404'
         }
@@ -179,8 +175,8 @@ export default class AppRoot extends HTMLElement {
           console.log('loaded module:', elementName)
           next()
         })
-        .catch( () => {
-          // TODO: handle 404
+        .catch( (e) => {
+          this.store.dispatch('app:REQUEST_VIEW', {route: ctx.path, view: 'view/404', elementName: 'core-404'})
         })
 
       } else {

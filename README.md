@@ -63,7 +63,7 @@ Help make it better (criticism and PR's welcome).
 
 ## Fine print
 
-To enable deep linking we have to have a 1-1 correlation between the route and the file path of the view.  This can be modified for your use-case.  Views can be kept in a db instead of the file system and this would not be an issue.
+To enable deep linking we have to have a 1-1 correlation between the route and the file path of the view.  This can be modified for your use-case.  Views can be kept in a db instead of the file system and this would not be an issue.  Another option would be let your routes match your file path.
 
 Needs work:
 - Naming conventions/logic
