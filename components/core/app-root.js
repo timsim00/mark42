@@ -98,9 +98,9 @@ export default class AppRoot extends HTMLElement {
           console.error(`SET_VIEW load error: next:${elementName}-${status} to:${res.elementName}-${res.status}`)
         } else {
           state.app.view.current = Object.assign({}, state.app.view.next)
-          delete state.app.view.next
-          return state
         }
+        delete state.app.view.next
+        return state
       },
       PREP_NEXT: (state, res) => {
         state.app.view.next = res
@@ -131,12 +131,12 @@ export default class AppRoot extends HTMLElement {
       let nextView
       if (ctx.pathname === '/') {
         nextView = {
-          view: 'view/landing',
-          elementName: 'core-landing' // `core-${this.store.state.app.view.default}` // 
+          view: this.store.state.app.view.default.view,
+          elementName: this.store.state.app.view.default.elementName
         }
       } else if (ctx.pathname.includes('/about')) {
         nextView = {
-          view: 'view/about',
+          view: 'views/about',
           elementName: 'core-about'
         }
       } else if (ctx.pathname.includes('/app/')) {
@@ -146,7 +146,7 @@ export default class AppRoot extends HTMLElement {
         }
       } else {
         nextView = {
-          view: 'view/404',
+          view: 'views/404',
           elementName: 'core-404'
         }
       }
@@ -158,7 +158,7 @@ export default class AppRoot extends HTMLElement {
     * Load the view if we don't have it.
     */
     const fetchView = (ctx, next) => {
-      console.log('fetchView', ctx)
+      console.log('fetchView', this.store.state.app.view.next)
       const cur = this.store.state.app.view.current
       const nextView = this.store.state.app.view.next
 
@@ -176,7 +176,7 @@ export default class AppRoot extends HTMLElement {
           next()
         })
         .catch( (e) => {
-          this.store.dispatch('app:REQUEST_VIEW', {route: ctx.path, view: 'view/404', elementName: 'core-404'})
+          this.store.dispatch('app:REQUEST_VIEW', {route: ctx.path, view: 'views/404', elementName: 'core-404'})
         })
 
       } else {
@@ -229,7 +229,7 @@ export default class AppRoot extends HTMLElement {
       view: {
         next: null,
         current: {},
-        default: 'landing'
+        default: {view: 'core/landing', elementName: 'core-landing'}
       }
     }
   }

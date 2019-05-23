@@ -44,7 +44,7 @@
       const h1 = e.target.closest('h1')
       if (e.target.id === 'btnAbout') {
         console.log('About clicked')
-        this.store.dispatch('app:REQUEST_VIEW', {route: '/about', view: 'view/about', elementName: 'core-about'})
+        this.store.dispatch('app:REQUEST_VIEW', {route: '/about', view: 'views/about', elementName: 'core-about'})
       } else if (e.target.id === 'btnApp') {
         this.store.dispatch('app:REQUEST_VIEW', {route: '/app/uHelloWorld1v1', view: 'other/uHelloWorld1v1', elementName: 'app-uHelloWorld1v1'})
       } else if (h1 && h1.id === 'app-title') {
