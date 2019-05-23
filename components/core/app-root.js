@@ -15,7 +15,7 @@ export default class AppRoot extends HTMLElement {
     return 'app-root'
   }
   static get import() {
-    return ['core/corePage', 'core/core-nav', 'core/core-header', 'core/core-main', 'core/core-landing', 'core/core-footer']
+    return ['core/Page', 'core/nav', 'core/header', 'core/main', 'core/landing', 'core/footer']
   }
 
   constructor() {
@@ -57,6 +57,7 @@ export default class AppRoot extends HTMLElement {
         this.initRouter(evt) // setup routes, *before* notify()!
         this.store.quiet = false
         this.store.notify() // send out initial state to all subscribers
+        window.removeEventListener('modules:all-loaded', this.appLoader, false)
       })
     }, false)
   }
@@ -64,13 +65,17 @@ export default class AppRoot extends HTMLElement {
   get actions() {
     return {
       REQUEST_VIEW: ({mutate}, path) => {
-        this.router(path)
+        mutate('app:REQUEST_VIEW', path)
+        this.router(path.route)
       },
       SHOW_VIEW: ({mutate}, data) => {
         mutate('app:SHOW_VIEW', data)
       },
       SET_VIEW: ({mutate}, data) => {
         mutate('app:SET_VIEW', data)
+      },
+      PREP_NEXT: ({mutate}, data) => {
+        mutate('app:PREP_NEXT', data)
       }
     }
   }
@@ -78,19 +83,28 @@ export default class AppRoot extends HTMLElement {
   get mutators() {
     // every mutator better return state or there's gonna be trouble
     return {
-      SHOW_VIEW: (state, res) => {
+      REQUEST_VIEW: (state, res) => {
         state.app.view.next = res
+        state.app.view.next.status = 'requested'
+        return state
+      },
+      SHOW_VIEW: (state) => {
+        state.app.view.next.status = 'ready' // main.js will pick up this state change.
         return state
       },
       SET_VIEW: (state, res) => {
-        let {type, app, status} = state.app.view.next || {}
-        if (type !== res.type || app !== res.app || res.status !== 'added') {
-          console.error(`SET_VIEW error: type and app have unexpected values. next:${type}:${app}-${status} to:${res.type}:${res.app}-${res.status}`)
+        let {elementName, status} = state.app.view.next || {}
+        if (elementName !== res.elementName || res.status !== 'added') {
+          console.error(`SET_VIEW load error: next:${elementName}-${status} to:${res.elementName}-${res.status}`)
         } else {
           state.app.view.current = Object.assign({}, state.app.view.next)
           delete state.app.view.next
           return state
         }
+      },
+      PREP_NEXT: (state, res) => {
+        state.app.view.next = res
+        return state
       }
     }
   }
@@ -101,82 +115,91 @@ export default class AppRoot extends HTMLElement {
     const qryToObj = (query) => {
       return JSON.parse('{"' + decodeURI(query).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
     }
+    const rootPath = '/components/'
+    const ext = '.js'
+
     /*
-    * Determine which view the user will see.
+    * For routes hit via url, and not from within the app, setup the data needed to fetch.
     */
     const parsePath = (ctx, next) => {
-      console.log('parsePath', ctx)
-      ctx.state.next = {
-        type: 'core',
-        app: this.store.state.app.view.default
+      console.log('parsePath', ctx.pathname, this.store.state.app.view.next)
+      if (this.store.state.app.view.next) {
+        next()
+        return
       }
-      if (ctx.state.notfound) {
-        console.log('/notfound')
-        ctx.state.next = {
-          type: 'core',
-          app: '404'
+
+      let nextView
+      if (ctx.pathname === '/') {
+        nextView = {
+          // route: '/',
+          view: 'view/landing',
+          elementName: 'core-landing' // `core-${this.store.state.app.view.default}`
         }
       } else if (ctx.pathname.includes('/about')) {
-        console.log('/about')
-        ctx.state.next = {
-          type: 'core',
-          app: 'about'
+        nextView = {
+          // route: '/about',
+          view: 'view/about',
+          elementName: 'core-about'
         }
       } else if (ctx.pathname.includes('/app/')) {
-        console.log('/app/')
-        ctx.state.next = {
-          type: 'app',
-          app: ctx.params.appName
+        nextView = {
+          // route: `/app/${ctx.params.appName}`,
+          view: `other/${ctx.params.appName}`, // has to be 1-1 correlation btw route and file location for deep linking
+          elementName: `app-${ctx.params.appName}`
+        }
+      } else {
+        nextView = {
+          // route: ctx.path,
+          view: 'view/404',
+          elementName: 'core-404'
         }
       }
-      ctx.save()
-      console.log('next view:', ctx.state.next)
+      this.store.dispatch('app:PREP_NEXT', nextView)
       next()
     }
+
     /*
     * Load the view if we don't have it.
     */
     const fetchView = (ctx, next) => {
       console.log('fetchView', ctx)
       const cur = this.store.state.app.view.current
-      const nextView = ctx.state.next
-      if (cur.type === nextView.type && cur.app === nextView.app) {
+      const nextView = this.store.state.app.view.next
+
+      // is this view currently on the screen?
+      if (cur.view === nextView.view) {
         console.error('view already showing', cur.type, cur.app)
         return
       }
-      const eleName = `${nextView.type}-${nextView.app}`
-      let route = location.pathname
-      route += nextView.type === 'core' ? `${nextView.app}` : `app/${nextView.app}`
 
-      if (!this.elementList.includes(eleName.toLowerCase())) {
-        const fileName = nextView.type === 'core' ? eleName : eleName.replace('app-','')
-        window.loadMicroApp( {URL:`/components/${nextView.type}/${fileName}.js`, rootPath:'/components/'} )
+      // did we already load this element?
+      if (!this.elementList.includes(nextView.elementName.toLowerCase())) {
+        window.loadMicroApp( {URL:`${rootPath}${nextView.view}${ext}`, rootPath} )
         .then( ( elementName ) => {
           console.log('loaded module:', elementName)
           next()
         })
+        .catch( () => {
+          // TODO: handle 404
+        })
+
       } else {
-        console.log('already loaded:', nextView.app)
+        console.log('already loaded:', nextView.view)
         next()
       }
     }
 
     const showView = (ctx,next) => {
-      console.log('showView', ctx.state.next)
+      console.log('showView', JSON.stringify(this.store.state.app.view.next))
       // const queryObj = ctx.querystring ? qryToObj(ctx.querystring) : {}
-      this.store.dispatch(`app:SHOW_VIEW`, ctx.state.next)
+      this.store.dispatch(`app:SHOW_VIEW`)
     }
 
-    page('/', (ctx,next)=>{console.log('router:1 >', page.base(), '<');next()}, parsePath, fetchView, showView)
-    page('/about', (ctx,next)=>{console.log('router:3');next()}, parsePath, fetchView, showView)
-    page('/app/:appName', (ctx,next)=>{console.log('router:5');next()}, parsePath, fetchView, showView)
-    page('*', (ctx,next)=>{console.log('router:6');ctx.state.notfound = true; ctx.save(); next()}, parsePath, fetchView, showView, (ctx,next) => {
-      console.log('notfound = false')
-      ctx.state.notfound = false
-      ctx.save()
-    })
+    page('/', parsePath, fetchView, showView)
+    page('/about', parsePath, fetchView, showView)
+    page('/app/:appName', parsePath, fetchView, showView)
+    page('*', parsePath, fetchView, showView)
 
-    // TODO: browser back/foreward not working correctly
     window.onpopstate = function(event) {
       console.log("location: " + document.location + ", state: " + JSON.stringify(event.state))
     }
@@ -198,7 +221,7 @@ export default class AppRoot extends HTMLElement {
       this.remainingModules.splice(pos, 1);
     }
     this.dispatchEvent(new CustomEvent(`${name}:is-loaded`, {detail: {module}, bubbles: true, composed: true, cancelable: false}))
-    if (this.remainingModules.length === 0) {
+    if (this.isLoading && this.remainingModules.length === 0) {
       this.isLoading = false
       window.dispatchEvent(new CustomEvent(`modules:all-loaded`, {detail: {}, bubbles: true, composed: true, cancelable: false}))
     }

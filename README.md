@@ -63,12 +63,10 @@ Help make it better (criticism and PR's welcome).
 
 ## Fine print
 
-Naming conventions are important atm.  Certain logic is driven by how folders, files and modules are named. Not ideal, but room for improvement.
+To enable deep linking we have to have a 1-1 correlation between the route and the file path of the view.  This can be modified for your use-case.  Views can be kept in a db instead of the file system and this would not be an issue.
 
 Needs work:
 - Naming conventions/logic
-- Browser back/forward navigation
 - [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) (esp. when using tachyons within shadowdom)
-- Firefox/safari 'app ready' event
 - Experiment with bundling core components/assets
 - [Support](https://github.com/WebReflection/document-register-element) for older browsers, [more](https://github.com/webcomponents/webcomponentsjs)

@@ -2,16 +2,16 @@
   <div class="page-header w-100 bb b--black-30">
     <nav class="dt pv2 bg-white w-100 mw8 center">
       <div class="mw8 center ph3 pt0 flex items-center justify-between justify-between-ns">
-        <a class="dark-red tl f3 link fw1" title="Home" href="/">
-          <h1 class="link mv0 tracked no-underline f3 fw4">
-            <span class="v-mid dib link dim mr2 w2 h2" href="/" title="{{app.orgName}}">
+        <div class="dark-red tl f3 link pointer fw1" title="Home">
+          <h1 id="app-title" class="link mv0 tracked no-underline f3 fw4">
+            <span class="v-mid dib link dim mr2 w2 h2" title="{{app.orgName}}">
               <img src="/assets/icon.png" alt="Logo">
             </span>
-            <span class="dark-red mr3 v-mid link dim color-neutral hover-color-neutral f5 f3-ns dn dib-ns" href="/" title="{{app.orgName}}">
+            <span class="dark-red mr3 v-mid link dim color-neutral hover-color-neutral f5 f3-ns dn dib-ns" title="{{app.orgName}}">
               {{app.orgName}}
             </span>
           </h1>
-        </a>
+        </div>
         <nav class="mt0 pt0 tr items-baseline justify-between db-l flex-l">
           <div class="dib">
             <span id="btnAbout" name="about" class="tr fr mr4 dim pointer link">About</span>
@@ -41,11 +41,15 @@
 
     onClick(e) {
       console.log('click', e.target.id)
+      const h1 = e.target.closest('h1')
       if (e.target.id === 'btnAbout') {
         console.log('About clicked')
-        this.store.dispatch('app:REQUEST_VIEW', '/about')
+        this.store.dispatch('app:REQUEST_VIEW', {route: '/about', view: 'view/about', elementName: 'core-about'})
       } else if (e.target.id === 'btnApp') {
-        this.store.dispatch('app:REQUEST_VIEW', '/app/uHelloWorld1v1')
+        this.store.dispatch('app:REQUEST_VIEW', {route: '/app/uHelloWorld1v1', view: 'other/uHelloWorld1v1', elementName: 'app-uHelloWorld1v1'})
+      } else if (h1 && h1.id === 'app-title') {
+        e.preventDefault()
+        this.store.dispatch('app:REQUEST_VIEW', {route: '/', view: 'core/landing', elementName: 'core-landing'})
       }
     }
 
