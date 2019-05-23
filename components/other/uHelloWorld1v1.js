@@ -2,13 +2,14 @@
   <div class="mw6 mw8-ns ph4-ns ph3 pv3 center overflow-scroll h-100">
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
     <fancy-button id="btnFancy">Imported Component</fancy-button>
+    <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
   </div>
 </template>
 <script>
   export default {
     elementName: 'app-uHelloWorld1v1',
     name: 'uHelloWorld1v1',
-    import: ['elements/fancy-button'],
+    import: ['elements/fancy-button', 'elements/material-checkbox'],
 
     connectedCallback() {
       console.log('uHelloWorld1v1 connectedCallback')
