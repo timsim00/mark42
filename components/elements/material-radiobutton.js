@@ -2,11 +2,11 @@
 Copyright (c) 2019 Danny Moerkerke and other contributors
 https://github.com/DannyMoerkerke/material-webcomponents/blob/master
 /LICENSE
-/demo/partials/material-checkbox.js
-/src/material-checkbox.js
-demo: https://dannymoerkerke.github.io/material-webcomponents/material-checkbox
+/demo/partials/material-radiobutton.js
+/src/material-radiobutton.js
+demo: https://dannymoerkerke.github.io/material-webcomponents/material-radiobutton
 */
-export default class MaterialCheckbox extends HTMLElement {
+export class MaterialRadiobutton extends HTMLElement {
 
   static get observedAttributes() {
     return ['label', 'checked', 'value', 'name'];
@@ -23,11 +23,6 @@ export default class MaterialCheckbox extends HTMLElement {
                     --unchecked-color: #999999;
                     --checked-color: #337ab7;
                     --label-color: #333333;
-
-                    display: block;
-                    box-sizing: border-box;
-                    width: 20px;
-                    height: 20px;
                 }
                 :host([invalid]) {
                     --unchecked-color: #ff0000;
@@ -47,6 +42,16 @@ export default class MaterialCheckbox extends HTMLElement {
                         box-shadow: 0 0 0 16px rgba(204, 204, 204, 0.1);
                     }
                 }
+                #radiobutton-container {
+                    margin-bottom: 1rem;
+                }
+                input {
+                    width: auto;
+                    opacity: 0.00000001;
+                    position: absolute;
+                    left: 1px;
+                    top: 1px;
+                }
                 .ripple {
                     width: 1rem;
                     height: 1rem;
@@ -64,75 +69,56 @@ export default class MaterialCheckbox extends HTMLElement {
                     color: var(--label-color);
                     display: block;
                 }
-                input {
-                    width: auto;
-                    opacity: 0.00000001;
-                    position: absolute;
-                    left: 0;
-                    margin-right: 2rem;
-                }
                 .checkmark {
-                    color: var(--unchecked-color);
                     position: absolute;
-                    top: 0;
+                    top: -0.25rem;
+                    left: -0.25rem;
+                    cursor: pointer;
+                    display: block;
+                    font-size: 1rem;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    color:var(--unchecked-color);
+                }
+                .checkmark::before, #radiobutton-container .checkmark::after {
+                    content: '';
+                    position: absolute;
                     left: 0;
+                    top: 0;
+                    margin: 0.25rem;
                     width: 1rem;
                     height: 1rem;
-                    z-index: 0;
+                    transition: transform 0.28s ease;
+                    border-radius: 50%;
                     border: 0.125rem solid currentColor;
-                    border-radius: 0.0625rem;
-                    transition: border-color 0.28s ease;
-                }
-                .checkmark::before,
-                #checkbox-container .checkmark::after {
-                    position: absolute;
-                    height: 0;
-                    width: 0.2rem;
-                    background-color: var(--checked-color);
-                    display: block;
-                    transform-origin: left top;
-                    border-radius: 0.25rem;
-                    content: '';
-                    transition: opacity 0.28s ease, height 0s linear 0.28s;
-                    opacity: 0;
-                }
-                 .checkmark::before {
-                    top: 0.65rem;
-                    left: 0.38rem;
-                    transform: rotate(-135deg);
-                    box-shadow: 0 0 0 0.0625rem #fff;
                 }
                 .checkmark::after {
-                    top: 0.3rem;
-                    left: 0;
-                    transform: rotate(-45deg);
+                    transform: scale(0);
+                    background-color: var(--checked-color);
+                    border-color: var(--checked-color);
                 }
-                #checkbox-container input:checked ~ .checkmark::after {
-                    height: 0.5rem;
-                }
-                #checkbox-container input:checked ~ .checkmark::before {
-                    height: 1.2rem;
-                    transition-delay: 0.28s;
-                }
-
                 label:hover .checkmark {
                     color: var(--checked-color);
                 }
-                input:checked ~ .checkmark {
+                input:checked {
+                    border-radius: 50%;
+                }
+                input:checked ~ .checkmark::after {
+                    transform: scale(0.5);
+                }
+                input:checked ~ .checkmark::before {
                     color: var(--checked-color);
                 }
-                #checkbox-container input:checked ~ .checkmark::after,
-                #checkbox-container input:checked ~ .checkmark::before {
-                    opacity: 1;
-                    transition: height 0.28s ease;
-                }
+
             </style>
 
-            <div id="checkbox-container">
+            <div id="radiobutton-container">
                 <label>
-                    <input type="checkbox">
-                    <i class="checkmark"></i>
+                    <input type="radio">
                     <div class="ripple"></div>
+                    <i class="checkmark"></i>
                 </label>
             </div>
         `;
@@ -145,20 +131,13 @@ export default class MaterialCheckbox extends HTMLElement {
     this.input.addEventListener('click', this.handleClick.bind(this));
   }
 
-  handleClick(e) {
-    e.stopPropagation();
-
-    if(this.input.checked) {
-      this.setAttribute('checked', '');
-    }
-    else {
-      this.removeAttribute('checked');
-    }
-  }
-
   attributeChangedCallback(attr, oldVal, newVal) {
     if(attr === 'value' || attr === 'name') {
       this.input[attr] = newVal;
+    }
+
+    if(attr === 'value') {
+      this.input.setAttribute('value', newVal);
     }
 
     if(attr === 'label') {
@@ -174,9 +153,19 @@ export default class MaterialCheckbox extends HTMLElement {
     }
   }
 
-  setLabel(text) {
-    const label = document.createTextNode(text);
-    this.label.appendChild(label);
+  handleClick() {
+    this.setAttribute('checked', '');
+
+    const {name, value} = this.input;
+
+    this.dispatchEvent(new CustomEvent('change', {
+      detail: {
+        name,
+        value
+      },
+      composed: true,
+      bubbles: false
+    }));
   }
 
   get value() {
@@ -184,12 +173,22 @@ export default class MaterialCheckbox extends HTMLElement {
   }
 
   get checked() {
-    return this.input.checked;
+    return this.hasAttribute('checked');
   }
 
   set checked(isChecked) {
-    this.input.checked = isChecked;
+    if(isChecked) {
+      this.setAttribute('checked', '');
+    }
+    else {
+      this.removeAttribute('checked');
+    }
+  }
+
+  setLabel(text) {
+    const label = document.createTextNode(text);
+    this.label.appendChild(label);
   }
 }
 
-customElements.define('material-checkbox', MaterialCheckbox);
+customElements.define('material-radiobutton', MaterialRadiobutton);
