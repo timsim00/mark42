@@ -177,7 +177,15 @@ window.loadMicroApp = ( function() {
 	function fetchAndParse( options ) {
 		return fetch( options.URL ).then( ( response ) => {
 			return response.text();
-		} ).then( ( content ) => {
+		})
+    .then( ( content )  => {
+      // console.log(`PRE-PROCESSING: ${options.URL}`)
+      // avoid the error: "Invalid relative url or base scheme isn't hierarchical"
+      content = content.replace(/import \'/g, `import \'${location.origin}`) // single quotes
+      content = content.replace(/import \"/g, `import \"${location.origin}`) // double quotes
+      return content
+    })
+    .then( ( content ) => {
 
       const parser = new DOMParser()
 			const document = parser.parseFromString( content, 'text/html' )

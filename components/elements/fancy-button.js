@@ -1,7 +1,7 @@
 export default class FancyButton extends HTMLElement {
-  static get elementName() {
-    return 'fancy-button'
-  }
+  // static get elementName() { // not needed if 'define' below.
+  //   return 'fancy-button'
+  // }
   static get template() {
     return `
       <style>
@@ -34,3 +34,4 @@ export default class FancyButton extends HTMLElement {
     }).innerHTML = FancyButton.template;
   }
 };
+customElements.define('fancy-button', FancyButton);

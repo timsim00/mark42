@@ -176,6 +176,7 @@ export default class AppRoot extends HTMLElement {
           next()
         })
         .catch( (e) => {
+          console.error(`Problem loading ${nextView.view}`, e)
           this.store.dispatch('app:REQUEST_VIEW', {route: ctx.path, view: 'views/404', elementName: 'core-404'})
         })
 

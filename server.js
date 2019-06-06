@@ -15,6 +15,8 @@ var port = process.env.PORT || 8787
 // Create server
 var server = http.createServer(function onRequest (req, res) {
 
+  console.log('req.url',req.url)
+
   var done = finalhandler(req, res, { onerror: logerror })
 
   var routes = ['/assets', '/components']
@@ -24,7 +26,11 @@ var server = http.createServer(function onRequest (req, res) {
     // return index.html for deep link routes that aren't known files (routes array)
     // had to move app-root.js into components/core
     fs.readFile('index.html', function (err, buf) {
-      if (err) return done(err)
+      if (err) {
+        console.log('* error', err)
+        return done(err)
+      }
+      console.log('return index.html (', req.url, ')')
       res.setHeader('Content-Type', 'text/html')
       res.end(buf)
     })
