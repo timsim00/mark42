@@ -36,7 +36,18 @@
     },
 
     onClick(e) {
-      console.log('ONCLICK', e.target.id)
+      console.log('ONCLICK', e.target.id, this)
+      if (e.target.id === 'btnTachyon') {
+        // let btn = this.querySelector('#btnTachyonDisabled')
+        // console.log('btn', btn, btn.dataset.class)
+        // btn.dataset.class = btn.dataset.class.replace('button-disabled bg-gray', 'dim bg-green pointer')
+        // btn.removeAttribute('disabled')
+        // need something like: btn.refreshTemplate()
+        let outerBtn = this.querySelector('#btnTachyonDisabled')
+        let innerBtn = outerBtn.shadowRoot.querySelector('button')
+        innerBtn.setAttribute('class', innerBtn.getAttribute('class').replace('button-disabled bg-gray', 'dim bg-green pointer'))
+        outerBtn.removeAttribute('disabled')
+      }
     },
 
     render(state) {
