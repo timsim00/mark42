@@ -8,9 +8,11 @@
     <elix-boot-button data-ss="/assets/bootstrap.min.css" data-class="btn btn-primary">Elix Bootstrap Button</elix-boot-button>
     <elix-boot-button data-ss="/assets/bootstrap.min.css" data-class="btn btn-success">Elix Bootstrap Button</elix-boot-button>
 
-    <elix-tach-button data-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-tach-button>
-    <elix-tach-button disabled data-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-tach-button>
+    <elix-tach-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-tach-button>
+    <elix-tach-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-tach-button>
     <elix-button id="btnElix">Elix Button</elix-button>
+
+
 
   </div>
 </template>
@@ -38,14 +40,8 @@
     onClick(e) {
       console.log('ONCLICK', e.target.id, this)
       if (e.target.id === 'btnTachyon') {
-        // let btn = this.querySelector('#btnTachyonDisabled')
-        // console.log('btn', btn, btn.dataset.class)
-        // btn.dataset.class = btn.dataset.class.replace('button-disabled bg-gray', 'dim bg-green pointer')
-        // btn.removeAttribute('disabled')
-        // need something like: btn.refreshTemplate()
         let outerBtn = this.querySelector('#btnTachyonDisabled')
-        let innerBtn = outerBtn.shadowRoot.querySelector('button')
-        innerBtn.setAttribute('class', innerBtn.getAttribute('class').replace('button-disabled bg-gray', 'dim bg-green pointer'))
+        outerBtn.setAttribute('inner-class', outerBtn.getAttribute('inner-class').replace('button-disabled bg-gray', 'dim bg-green pointer'))
         outerBtn.removeAttribute('disabled')
       }
     },

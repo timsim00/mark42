@@ -10,7 +10,7 @@ class BootButton extends Button {
 
   get [symbols.hasDynamicTemplate]() {
     return true;
-  }    
+  }
 
   get [symbols.template]() {
     return template.html`
