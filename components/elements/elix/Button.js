@@ -35,10 +35,10 @@ const mapKeysToClick = !firefox;
 
 /**
  * Base class for custom buttons.
- * 
+ *
  * `Button` wraps a standard HTML `button` element, allowing for custom styling
  * and behavior while ensuring standard keyboard and focus behavior.
- * 
+ *
  * @inherits WrappedStandardElement
  * @mixes AriaRoleMixin
  * @mixes ComposedFocusMixin
@@ -98,6 +98,10 @@ class Button extends Base {
     this.dispatchEvent(clickEvent);
   }
 
+  get [symbols.hasDynamicTemplate]() {
+    return true;
+  }
+
   get [symbols.template]() {
     return template.html`
       <style>
@@ -107,7 +111,7 @@ class Button extends Base {
           -webkit-tap-highlight-color: transparent;
           touch-action: manipulation;
         }
-        
+
         #inner {
           align-items: center; /* Edge */
           color: inherit;
@@ -126,7 +130,7 @@ class Button extends Base {
         }
       </style>
 
-      <button id="inner" role="none">
+      <button part="elix-button" id="inner" role="none">
         <slot></slot>
       </button>
     `;
