@@ -11,8 +11,8 @@
     <elix-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-button>
     <elix-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-button>
 
-    <elix-tach-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-tach-button>
-    <elix-tach-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-tach-button>
+    <elix-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-button>
+    <elix-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-button>
 
 
 
@@ -22,8 +22,8 @@
   import '/components/elements/moerkerke/material-checkbox.js'
   import '/components/elements/fancy-button.js'
   import '/components/elements/elix/AutoCompleteInput.js'
-  import '/components/elements/elix-bootstrap/Button.js'
-  import '/components/elements/elix-tachyon/Button.js'
+  // import '/components/elements/elix-bootstrap/Button.js'
+  // import '/components/elements/elix-tachyon/Button.js'
   import '/components/elements/elix/Button.js'
 
   export default {
@@ -52,11 +52,11 @@
       this.shadowRoot.querySelector(this.selector).innerHTML = this._updateTemplate(this.templates[0].innerHTML, state)
 
 
-      let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
-      let css = '@import "/assets/bootstrap.min.css"'
-      let style = document.createElement('style');
-      style.appendChild(document.createTextNode(css));
-      outerBtn.shadowRoot.querySelector('style').replaceWith(style)
+      // let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
+      // let css = '@import "/assets/bootstrap.min.css"'
+      // let style = document.createElement('style');
+      // style.appendChild(document.createTextNode(css));
+      // outerBtn.shadowRoot.querySelector('style').replaceWith(style)
 
 
       this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
