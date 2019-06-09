@@ -1,12 +1,23 @@
 import * as symbols from './symbols.js';
 import Input from './Input.js';
 
+import InnerClassMixin from './InnerClassMixin.js';
+import InnerStyleMixin from './InnerStyleMixin.js';
+import WrappedStandardElement from './WrappedStandardElement.js';
+
+
+const Base =
+  InnerClassMixin(
+  InnerStyleMixin(
+    Input
+  ));
+
 /**
  * A text input box that completes text as the user types
  *
  * @inherits Input
  */
-class AutoCompleteInput extends Input {
+class AutoCompleteInput extends Base {
 
   componentDidMount() {
     super.componentDidMount();

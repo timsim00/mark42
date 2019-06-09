@@ -6,19 +6,23 @@ export default function innerStyleMixin(Base) {
   class innerStyle extends Base {
 
     get defaultState() {
-      return Object.assign(super.defaultState, {
-        // TODO: customize the import for the component:
-        // https://getbootstrap.com/docs/3.4/customize/
-        // innerStyle: `
-        //   @import "/assets/bootstrap.min.css"
-        // `
-        innerStyle: `
-          @import "/assets/tachyons.min.css";
+      // console.log('*** defaultState', this.extends)
+      // https://getbootstrap.com/docs/3.4/customize/
+      let innerStyle = '@import "/assets/tachyons.min.css";'
+      if (this.extends === 'input') {
+        innerStyle += '@import "/assets/input-bootstrap.min.css";'
+      } else if (this.extends === 'button') {
+        innerStyle += `
+          @import "/assets/button-bootstrap.min.css";
           .button-disabled {
             opacity: 0.65;
             cursor: not-allowed;
           }
         `
+      }
+
+      return Object.assign(super.defaultState, {
+        innerStyle
       });
     }
 

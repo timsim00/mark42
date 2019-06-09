@@ -1,13 +1,10 @@
 <template>
   <div class="mw6 mw8-ns ph4-ns ph3 pv3 center overflow-scroll h-100">
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
-    <fancy-button id="btnFancy">Imported Component</fancy-button>
+
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
-    <elix-auto-complete-input id="sampleAutoCompleteInput" aria-label="Pet"></elix-auto-complete-input>
-<!--
-    <elix-boot-button id="bootPrimary" data-ss="/assets/bootstrap.min.css" inner-class="btn btn-primary">Elix Bootstrap Button</elix-boot-button>
-    <elix-boot-button id="bootSuccess" data-ss="/assets/bootstrap.min.css" inner-class="btn btn-success">Elix Bootstrap Button</elix-boot-button>
--->
+    <elix-auto-complete-input inner-class="form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-auto-complete-input>
+
     <elix-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-button>
     <elix-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-button>
 
@@ -20,10 +17,8 @@
 </template>
 <script>
   import '/components/elements/moerkerke/material-checkbox.js'
-  import '/components/elements/fancy-button.js'
+  // import '/components/elements/fancy-button.js'
   import '/components/elements/elix/AutoCompleteInput.js'
-  // import '/components/elements/elix-bootstrap/Button.js'
-  // import '/components/elements/elix-tachyon/Button.js'
   import '/components/elements/elix/Button.js'
 
   export default {
