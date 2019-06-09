@@ -14,10 +14,6 @@ class BootButton extends Button {
 
   get [symbols.template]() {
     return template.html`
-      <style>
-        @import "${this.dataset.ss}";
-      </style>
-
       <button id="inner" role="none">
         <slot></slot>
       </button>
