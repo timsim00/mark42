@@ -6,31 +6,7 @@ class TachButton extends Button {
 
   constructor() {
     super()
-    console.log(`constructor: ${this.id} - ${this.dataset.class}`)
-  }
-
-  get defaultState() {
-    return Object.assign(super.defaultState, {
-      innerClass: null
-    });
-  }
-
-  get innerClass() {
-    return this.state.innerClass;
-  }
-  set innerClass(innerClass) {
-    this.setState({ innerClass });
-  }
-
-  [symbols.render](changed) {
-    super[symbols.render](changed);
-    if (changed.innerClass) {
-      if (this.state.innerClass) {
-        this.$.inner.setAttribute('class', this.state.innerClass);
-      } else {
-        this.$.inner.removeAttribute('class');
-      }
-    }
+    console.log(`constructor: ${this.id} - ${this.getAttribute('inner-class')}`)
   }
 
   // get [symbols.hasDynamicTemplate]() {
@@ -38,8 +14,6 @@ class TachButton extends Button {
   // }
 
   get [symbols.template]() {
-    console.log(`get template${this.id} - ${this.dataset.class}`)
-    // console.trace()
     return template.html`
       <style>
         @import "/assets/tachyons.min.css";

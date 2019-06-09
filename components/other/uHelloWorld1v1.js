@@ -5,12 +5,11 @@
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
     <elix-auto-complete-input id="sampleAutoCompleteInput" aria-label="Pet"></elix-auto-complete-input>
 
-    <elix-boot-button data-ss="/assets/bootstrap.min.css" data-class="btn btn-primary">Elix Bootstrap Button</elix-boot-button>
-    <elix-boot-button data-ss="/assets/bootstrap.min.css" data-class="btn btn-success">Elix Bootstrap Button</elix-boot-button>
+    <elix-boot-button data-ss="/assets/bootstrap.min.css" inner-class="btn btn-primary">Elix Bootstrap Button</elix-boot-button>
+    <elix-boot-button data-ss="/assets/bootstrap.min.css" inner-class="btn btn-success">Elix Bootstrap Button</elix-boot-button>
 
     <elix-tach-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-tach-button>
     <elix-tach-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-tach-button>
-    <elix-button id="btnElix">Elix Button</elix-button>
 
 
 
@@ -27,7 +26,6 @@
   export default {
     elementName: 'app-uHelloWorld1v1',
     name: 'uHelloWorld1v1',
-    // import: ['elements/fancy-button', 'elements/material-checkbox', 'elements/elix/AutoCompleteInput'],
 
     connectedCallback() {
       console.log('uHelloWorld1v1 connectedCallback')

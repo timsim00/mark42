@@ -18,7 +18,7 @@ class BootButton extends Button {
         @import "${this.dataset.ss}";
       </style>
 
-      <button class="${this.dataset.class}" id="inner" role="none">
+      <button id="inner" role="none">
         <slot></slot>
       </button>
     `;
