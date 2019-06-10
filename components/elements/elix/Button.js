@@ -102,9 +102,9 @@ class Button extends Base {
     this.dispatchEvent(clickEvent);
   }
 
-  get [symbols.hasDynamicTemplate]() {
-    return true;
-  }
+  // get [symbols.hasDynamicTemplate]() {
+  //   return true;
+  // }
 
   get [symbols.template]() {
     return template.html`
