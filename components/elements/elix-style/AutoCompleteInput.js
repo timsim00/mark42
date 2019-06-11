@@ -1,13 +1,21 @@
-import * as symbols from './symbols.js';
-import Input from './Input.js';
+import * as symbols from '../elix/symbols.js';
+import Input from '../elix/Input.js';
+import InnerClassMixin from './InnerClassMixin.js';
+import InnerStyleMixin from './InnerStyleMixin.js';
 
+
+const Base =
+  InnerClassMixin(
+  InnerStyleMixin(
+    Input
+  ));
 
 /**
  * A text input box that completes text as the user types
- * 
+ *
  * @inherits Input
  */
-class AutoCompleteInput extends Input {
+class AutoCompleteInput extends Base {
 
   componentDidMount() {
     super.componentDidMount();
@@ -129,7 +137,7 @@ export function autoComplete(element) {
   if (!match) {
     return null;
   }
-  
+
   // Update the input value to the match. This is just a convenient way to
   // set state.innerProperties.value if the value actually changed.
   element.setInnerProperty('value', match);
@@ -144,4 +152,4 @@ export function autoComplete(element) {
 
 
 export default AutoCompleteInput;
-customElements.define('elix-auto-complete-input', AutoCompleteInput);
+customElements.define('elix-style-auto-complete-input', AutoCompleteInput);

@@ -178,9 +178,9 @@ const Base =
 
 /**
  * Wraps a standard HTML element so it can be extended
- *
+ * 
  * The typical way to use this class is via its static `wrap` method.
- *
+ * 
  * @inherits ReactiveElement
  * @mixes DelegateFocusMixin
  */
@@ -284,7 +284,7 @@ class WrappedStandardElement extends Base {
   get extends() {
     return this.constructor[extendsKey];
   }
-
+  
   /**
    * Returns a reference to the inner standard HTML element.
    *
@@ -299,7 +299,7 @@ class WrappedStandardElement extends Base {
     }
     return result;
   }
-
+  
   getInnerProperty(name) {
     // If we haven't rendered yet, use internal state value. Once we've
     // rendered, we get the value from the wrapped element itself. Return our
@@ -427,7 +427,7 @@ class WrappedStandardElement extends Base {
 
     // Create the new class.
     class Wrapped extends WrappedStandardElement {}
-
+    
     // Indicate which tag it wraps.
     Wrapped[extendsKey] = extendsTag;
 
@@ -442,7 +442,7 @@ class WrappedStandardElement extends Base {
 
 
 // Update the given attribute on an element.
-//
+// 
 // Passing a non-null `value` acts like a call to `setAttribute(name, value)`.
 // If the supplied `value` is nullish, this acts like a call to
 // `removeAttribute(name)`.

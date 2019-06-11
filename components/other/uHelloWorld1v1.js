@@ -3,7 +3,7 @@
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
 
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
-    <elix-auto-complete-input inner-class="form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-auto-complete-input>
+    <elix-style-auto-complete-input inner-class="form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-style-auto-complete-input>
 
     <elix-style-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-style-button>
     <elix-style-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-style-button>
@@ -16,8 +16,8 @@
 <script>
   import '/components/elements/moerkerke/material-checkbox.js'
   // import '/components/elements/fancy-button.js'
-  import '/components/elements/elix/AutoCompleteInput.js'
-  import '/components/elements/elix/StyleButton.js'
+  import '/components/elements/elix-style/AutoCompleteInput.js'
+  import '/components/elements/elix-style/Button.js'
 
   export default {
     elementName: 'app-uHelloWorld1v1',

@@ -1,5 +1,5 @@
-import * as symbols from './symbols.js';
-import * as template from './template.js';
+import * as symbols from '../elix/symbols.js';
+import * as template from '../elix/template.js';
 
 export default function innerStyleMixin(Base) {
 

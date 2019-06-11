@@ -1,16 +1,16 @@
-import Button from './Button.js';
+import BaseButton from '../elix/Button.js';
 import InnerClassMixin from './InnerClassMixin.js';
 import InnerStyleMixin from './InnerStyleMixin.js';
 
 const Base =
   InnerClassMixin(
   InnerStyleMixin(
-    Button
+    BaseButton
   ));
 
-class StyleButton extends Base {
+class Button extends Base {
 
 }
 
-customElements.define('elix-style-button', StyleButton);
-export default StyleButton;
+customElements.define('elix-style-button', Button);
+export default Button;

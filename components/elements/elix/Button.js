@@ -6,6 +6,7 @@ import FocusVisibleMixin from './FocusVisibleMixin.js';
 import KeyboardMixin from './KeyboardMixin.js';
 import WrappedStandardElement from './WrappedStandardElement.js';
 
+
 const Base =
   AriaRoleMixin(
   ComposedFocusMixin(
@@ -13,6 +14,7 @@ const Base =
   KeyboardMixin(
     WrappedStandardElement.wrap('button')
   ))));
+
 
 // Do we need to explicitly map Space/Enter keys to a button click?
 //
@@ -33,10 +35,10 @@ const mapKeysToClick = !firefox;
 
 /**
  * Base class for custom buttons.
- *
+ * 
  * `Button` wraps a standard HTML `button` element, allowing for custom styling
  * and behavior while ensuring standard keyboard and focus behavior.
- *
+ * 
  * @inherits WrappedStandardElement
  * @mixes AriaRoleMixin
  * @mixes ComposedFocusMixin
@@ -105,7 +107,7 @@ class Button extends Base {
           -webkit-tap-highlight-color: transparent;
           touch-action: manipulation;
         }
-
+        
         #inner {
           align-items: center; /* Edge */
           color: inherit;
@@ -124,7 +126,7 @@ class Button extends Base {
         }
       </style>
 
-      <button part="elix-button" id="inner" role="none">
+      <button id="inner" role="none">
         <slot></slot>
       </button>
     `;
