@@ -5,11 +5,11 @@
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
     <elix-auto-complete-input inner-class="form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-auto-complete-input>
 
-    <elix-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-button>
-    <elix-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-button>
+    <elix-style-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-style-button>
+    <elix-style-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-style-button>
 
-    <elix-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-button>
-    <elix-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-button>
+    <elix-style-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-style-button>
+    <elix-style-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-style-button>
 
 
 
@@ -19,7 +19,7 @@
   import '/components/elements/moerkerke/material-checkbox.js'
   // import '/components/elements/fancy-button.js'
   import '/components/elements/elix/AutoCompleteInput.js'
-  import '/components/elements/elix/Button.js'
+  import '/components/elements/elix/StyleButton.js'
 
   export default {
     elementName: 'app-uHelloWorld1v1',

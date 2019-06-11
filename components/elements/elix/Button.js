@@ -4,21 +4,15 @@ import AriaRoleMixin from './AriaRoleMixin.js';
 import ComposedFocusMixin from './ComposedFocusMixin.js';
 import FocusVisibleMixin from './FocusVisibleMixin.js';
 import KeyboardMixin from './KeyboardMixin.js';
-import InnerClassMixin from './InnerClassMixin.js';
-import InnerStyleMixin from './InnerStyleMixin.js';
 import WrappedStandardElement from './WrappedStandardElement.js';
-
 
 const Base =
   AriaRoleMixin(
   ComposedFocusMixin(
   FocusVisibleMixin(
   KeyboardMixin(
-  InnerClassMixin(
-  InnerStyleMixin(
     WrappedStandardElement.wrap('button')
-  ))))));
-
+  ))));
 
 // Do we need to explicitly map Space/Enter keys to a button click?
 //
@@ -102,11 +96,8 @@ class Button extends Base {
     this.dispatchEvent(clickEvent);
   }
 
-  // get [symbols.hasDynamicTemplate]() {
-  //   return true;
-  // }
-
   get [symbols.template]() {
+    console.trace()
     return template.html`
       <style>
         :host {

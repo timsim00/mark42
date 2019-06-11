@@ -1,6 +1,5 @@
 import * as symbols from './symbols.js';
 import Input from './Input.js';
-
 import InnerClassMixin from './InnerClassMixin.js';
 import InnerStyleMixin from './InnerStyleMixin.js';
 import WrappedStandardElement from './WrappedStandardElement.js';

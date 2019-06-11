@@ -42,7 +42,6 @@ class Input extends Base {
   }
 
   get [symbols.template]() {
-    console.log('input get template')
     return template.html`
       <style>
         :host {

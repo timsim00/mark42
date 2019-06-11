@@ -4,61 +4,24 @@ import * as template from './template.js';
 export default function innerStyleMixin(Base) {
 
   // The class prototype added by the mixin.
-  class innerStyle extends Base {
-
-    // get defaultState() {
-    //   // console.log('*** defaultState', this.extends)
-    //   // https://getbootstrap.com/docs/3.4/customize/
-    //   let innerStyle = '@import "/assets/tachyons.min.css";'
-    //   if (this.extends === 'input') {
-    //     innerStyle += '@import "/assets/input-bootstrap.min.css";'
-    //   } else if (this.extends === 'button') {
-    //     innerStyle += `
-    //       @import "/assets/button-bootstrap.min.css";
-    //       .button-disabled {
-    //         opacity: 0.65;
-    //         cursor: not-allowed;
-    //       }
-    //     `
-    //   }
-    //
-    //   return Object.assign(super.defaultState, {
-    //     innerStyle
-    //   });
-    // }
-    //
-    // get innerStyle() {
-    //   return this.state.innerStyle;
-    // }
-    // set innerStyle(innerClass) {
-    //   this.setState({ innerStyle });
-    // }
-    //
-    // [symbols.render](changed) {
-    //   super[symbols.render](changed);
-    //   if (changed.innerStyle && this.state.innerClass) {
-    //     let style = document.createElement('style');
-    //     style.appendChild(document.createTextNode(this.state.innerStyle));
-    //     this.shadowRoot.querySelector('style').replaceWith(style)
-    //   }
-    // }
-
-    // get [symbols.hasDynamicTemplate]() {
-    //   return true;
-    // }
+  class InnerStyle extends Base {
 
     get [symbols.template]() {
       console.log('*** innerstyle get template:', this.extends)
 
       let innerStyle = '@import "/assets/tachyons.min.css";'
-      if (this.extends === 'input') {
-        innerStyle += '@import "/assets/input-bootstrap.min.css";'
-      } else if (this.extends === 'button') {
+      const handled = ['input', 'button']
+      // TODO: browser-specific style sheets?
+      // TODO: reverse-tachyons to create component-specific css? (still need to allow for dynamic class changes)
+      // TODO: confirm browser caching/performance of @import's
+      if (handled.includes(this.extends)) {
+        innerStyle += `@import "/assets/${this.extends}-bootstrap.min.css";`
+      }
+      if (this.extends === 'button') {
         innerStyle += `
-          @import "/assets/button-bootstrap.min.css";
           .button-disabled {
             opacity: 0.65;
-            cursor: not-allowed;
+            cursor: not-allowed; /* bootstrap css overrides this */
           }
         `
       }
@@ -78,5 +41,5 @@ export default function innerStyleMixin(Base) {
 
   }
 
-  return innerStyle;
+  return InnerStyle;
 }
