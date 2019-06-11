@@ -97,7 +97,6 @@ class Button extends Base {
   }
 
   get [symbols.template]() {
-    console.trace()
     return template.html`
       <style>
         :host {
