@@ -14,9 +14,8 @@ Experimental, WIP
 ## Installation
 
 ```
-$ npm install
+$ yarn install
 $ npm run start
-$ npm run install-wc
 ```
 
 

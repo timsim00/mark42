@@ -5,7 +5,6 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-wc": "yarn add elix-602@npm:elix && yarn add moerkerke-mwc-114@npm:@dannymoerkerke/material-webcomponents",
     "start": "PORT=3002 node server.js"
   },
   "repository": {
