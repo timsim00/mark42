@@ -1,5 +1,5 @@
-import * as symbols from '../elix/symbols.js';
-import * as template from '../elix/template.js';
+import * as symbols from '../../../node_modules/elix-602/src/symbols.js';
+import * as template from '../../../node_modules/elix-602/src/template.js';
 
 export default function innerStyleMixin(Base) {
 
@@ -7,7 +7,7 @@ export default function innerStyleMixin(Base) {
   class InnerStyle extends Base {
 
     get [symbols.template]() {
-      console.log('*** innerstyle get template:', this.extends)
+      // console.log('innerstyle get template:', this.extends)
 
       let innerStyle = '@import "/assets/tachyons.min.css";'
       const handled = ['input', 'button']

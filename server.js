@@ -19,7 +19,7 @@ var server = http.createServer(function onRequest (req, res) {
 
   var done = finalhandler(req, res, { onerror: logerror })
 
-  var routes = ['/assets', '/components']
+  var routes = ['/assets', '/components', '/node_modules']
   var notindex = routes.filter(el => req.url.includes(el))
 
   if (notindex.length === 0) {

@@ -16,6 +16,7 @@ Experimental, WIP
 ```
 $ npm install
 $ npm run start
+$ npm run install-elix  (requires Yarn)
 ```
 
 

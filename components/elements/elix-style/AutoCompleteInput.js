@@ -1,5 +1,5 @@
-import * as symbols from '../elix/symbols.js';
-import Input from '../elix/Input.js';
+import * as symbols from '../../../node_modules/elix-602/src/symbols.js';
+import Input from '../../../node_modules/elix-602/src/Input.js';
 import InnerClassMixin from './InnerClassMixin.js';
 import InnerStyleMixin from './InnerStyleMixin.js';
 

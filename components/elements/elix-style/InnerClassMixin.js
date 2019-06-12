@@ -1,4 +1,4 @@
-import * as symbols from '../elix/symbols.js';
+import * as symbols from '../../../node_modules/elix-602/src/symbols.js';
 
 export default function InnerClassMixin(Base) {
 

@@ -1,4 +1,4 @@
-import BaseButton from '../elix/Button.js';
+import BaseButton from '../../../node_modules/elix-602/src/Button.js';
 import InnerClassMixin from './InnerClassMixin.js';
 import InnerStyleMixin from './InnerStyleMixin.js';
 
