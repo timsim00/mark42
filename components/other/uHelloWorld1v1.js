@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-  import '/components/elements/moerkerke/material-checkbox.js'
+  import '/node_modules/moerkerke-mwc-114/src/material-checkbox.js'
   // import '/components/elements/fancy-button.js'
   import '/components/elements/elix-style/AutoCompleteInput.js'
   import '/components/elements/elix-style/Button.js'

@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-elix": "yarn add elix-602@npm:elix",
+    "install-wc": "yarn add elix-602@npm:elix && yarn add moerkerke-mwc-114@npm:@dannymoerkerke/material-webcomponents",
     "start": "PORT=3002 node server.js"
   },
   "repository": {
@@ -44,6 +44,7 @@
     "serve-static": "^1.13.2"
   },
   "dependencies": {
-    "elix-602": "npm:elix"
+    "elix-602": "npm:elix",
+    "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents"
   }
 }

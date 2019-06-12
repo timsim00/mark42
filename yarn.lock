@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@webcomponents/webcomponentsjs@^1.0.17":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.3.3.tgz#5bb82a0d3210c836bd4623e13a4a93145cb9dc27"
+  integrity sha512-eLH04VBMpuZGzBIhOnUjECcQPEPcmfhWEijW9u1B5I+2PPYdWf3vWUExdDxu4Y3GljRSTCOlWnGtS9tpzmXMyQ==
+
 debug@2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -24,7 +29,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-"elix-602@npm:elix", elix@^6.0.2:
+"elix-602@npm:elix":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/elix/-/elix-6.0.2.tgz#61bc9f79c27e565510da4c54c304c01712657c3f"
   integrity sha512-vE0sbx7BACUQR5Ig1vgKrrLDr2kmxAaNmUMANAoXRqOFJAlaCrwe9qmC1cRvtfjVyr7/9aRChCIp9krn5r0udg==
@@ -87,6 +92,13 @@ mime@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+
+"moerkerke-mwc-114@npm:@dannymoerkerke/material-webcomponents":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@dannymoerkerke/material-webcomponents/-/material-webcomponents-1.1.4.tgz#2676db84da7aea921516d7da263dd6779a9ef117"
+  integrity sha512-yX0dGMMyvhL9v5KQWbEx+zPlyMJEc50UNJL7xOqlxTdz5lXDlr3HlkademAZZBNuq90OrMRtWej/PREbk/gDhw==
+  dependencies:
+    "@webcomponents/webcomponentsjs" "^1.0.17"
 
 ms@2.0.0:
   version "2.0.0"
