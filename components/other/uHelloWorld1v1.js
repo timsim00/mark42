@@ -1,5 +1,6 @@
 <template>
   <div class="mw6 mw8-ns ph4-ns ph3 pv3 center overflow-scroll h-100">
+
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
 
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
@@ -11,6 +12,10 @@
     <elix-style-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-style-button>
     <elix-style-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-style-button>
 
+    <elix-construct-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+
+
   </div>
 </template>
 <script>
@@ -18,6 +23,7 @@
   // import '/components/elements/fancy-button.js'
   import '/components/elements/elix-style/AutoCompleteInput.js'
   import '/components/elements/elix-style/Button.js'
+  import '/components/elements/elix-construct/Button.js'
 
   export default {
     elementName: 'app-uHelloWorld1v1',
@@ -52,34 +58,34 @@
       // outerBtn.shadowRoot.querySelector('style').replaceWith(style)
 
 
-      this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
-        'Canary',
-        'Cat',
-        'Chicken',
-        'Chinchilla',
-        'Cockatiel',
-        'Cricket',
-        'Dog',
-        'Ferret',
-        'Finch',
-        'Fish',
-        'Frog',
-        'Gerbil',
-        'Guinea Pig',
-        'Hamster',
-        'Hermit Crab',
-        'Lizard',
-        'Mouse',
-        'Parakeet',
-        'Parrot',
-        'Pig',
-        'Rabbit',
-        'Rat',
-        'Snail',
-        'Snake',
-        'Spider',
-        'Turtle'
-      ]
+      // this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
+      //   'Canary',
+      //   'Cat',
+      //   'Chicken',
+      //   'Chinchilla',
+      //   'Cockatiel',
+      //   'Cricket',
+      //   'Dog',
+      //   'Ferret',
+      //   'Finch',
+      //   'Fish',
+      //   'Frog',
+      //   'Gerbil',
+      //   'Guinea Pig',
+      //   'Hamster',
+      //   'Hermit Crab',
+      //   'Lizard',
+      //   'Mouse',
+      //   'Parakeet',
+      //   'Parrot',
+      //   'Pig',
+      //   'Rabbit',
+      //   'Rat',
+      //   'Snail',
+      //   'Snake',
+      //   'Spider',
+      //   'Turtle'
+      // ]
     }
   }
 </script>
