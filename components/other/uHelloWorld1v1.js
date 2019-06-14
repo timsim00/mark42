@@ -12,8 +12,60 @@
     <elix-style-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-style-button>
     <elix-style-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-style-button>
 
-    <elix-construct-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+<!--
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+-->
 
 
   </div>
@@ -38,7 +90,8 @@
     },
 
     onClick(e) {
-      console.log('ONCLICK', e.target.id, this)
+      let comp = this.querySelector(`#${e.target.id}`)
+      console.log('ONCLICK', e.target.id, !!comp.shadowRoot.adoptedStyleSheets.length)
       if (e.target.id === 'btnTachyon') {
         let outerBtn = this.querySelector('#btnTachyonDisabled')
         outerBtn.setAttribute('inner-class', outerBtn.getAttribute('inner-class').replace('button-disabled bg-gray', 'dim bg-green pointer'))
