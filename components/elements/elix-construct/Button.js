@@ -11,11 +11,13 @@ const Base =
 
 class Button extends Base {
 
-  get [symbols.template]() {
-    // console.trace()
-    // super[symbols.render](changed);
-    console.log('button-constructed', this.extends)
+  // [symbols.render](changed) {
+  //   super[symbols.render](changed);
+  // }
 
+  get [symbols.template]() {
+    console.log('button-constructed', this.extends)
+    // console.trace()
 
     const sheet = new CSSStyleSheet();
 

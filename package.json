@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "elix-602": "npm:elix",
-    "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents"
+    "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents",
+    "ui5-0120": "npm:@ui5/webcomponents"
   }
 }

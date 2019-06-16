@@ -4,7 +4,7 @@
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
 
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
-    <elix-style-auto-complete-input inner-class="form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-style-auto-complete-input>
+    <elix-style-auto-complete-input inner-class="mw5 form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-style-auto-complete-input>
 
     <elix-style-button id="bootPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-style-button>
     <elix-style-button id="bootSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-style-button>
@@ -14,6 +14,11 @@
 
     <elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
     <elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+
+    <ui5-datepicker style="width: 150px;" id="myDatepicker1"></ui5-datepicker>
+    <ui5-button id="ui5Button" type="Default">Enabled</ui5-button>
+
+
 <!--
     <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
     <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
@@ -76,6 +81,8 @@
   import '/components/elements/elix-style/AutoCompleteInput.js'
   import '/components/elements/elix-style/Button.js'
   import '/components/elements/elix-construct/Button.js'
+  import '/node_modules/ui5-0120/dist/Button.js'
+  import '/node_modules/ui5-0120/dist/DatePicker.js'
 
   export default {
     elementName: 'app-uHelloWorld1v1',
@@ -90,8 +97,8 @@
     },
 
     onClick(e) {
-      let comp = this.querySelector(`#${e.target.id}`)
-      console.log('ONCLICK', e.target.id, !!comp.shadowRoot.adoptedStyleSheets.length)
+      // let comp = this.querySelector(`#${e.target.id}`)
+      console.log('ONCLICK', e.target.id, this) //, !!comp.shadowRoot.adoptedStyleSheets.length)
       if (e.target.id === 'btnTachyon') {
         let outerBtn = this.querySelector('#btnTachyonDisabled')
         outerBtn.setAttribute('inner-class', outerBtn.getAttribute('inner-class').replace('button-disabled bg-gray', 'dim bg-green pointer'))

@@ -15,6 +15,9 @@ Experimental, WIP
 
 ```
 $ yarn install
+```
+For ui5 components, rename all import paths from "@ui5..." to "/node_modules/@ui5" in @ui5 and ui5-0120 folders
+```
 $ npm run start
 ```
 
