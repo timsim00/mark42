@@ -45,10 +45,10 @@
     "serve-static": "^1.13.2"
   },
   "dependencies": {
-    "elix-602": "npm:elix",
-    "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents",
+    "elix-602": "npm:elix@6.0.2",
+    "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents@1.1.4",
     "tslib": "^1.10.0",
-    "ui5-0120": "npm:@ui5/webcomponents",
-    "weightless-0034": "npm:weightless"
+    "ui5-0120": "npm:@ui5/webcomponents@0.12.0",
+    "weightless-0034": "npm:weightless@0.0.34"
   }
 }

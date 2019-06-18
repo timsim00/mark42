@@ -130,7 +130,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-"elix-602@npm:elix":
+"elix-602@npm:elix@6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/elix/-/elix-6.0.2.tgz#61bc9f79c27e565510da4c54c304c01712657c3f"
   integrity sha512-vE0sbx7BACUQR5Ig1vgKrrLDr2kmxAaNmUMANAoXRqOFJAlaCrwe9qmC1cRvtfjVyr7/9aRChCIp9krn5r0udg==
@@ -348,7 +348,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-"moerkerke-mwc-114@npm:@dannymoerkerke/material-webcomponents":
+"moerkerke-mwc-114@npm:@dannymoerkerke/material-webcomponents@1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@dannymoerkerke/material-webcomponents/-/material-webcomponents-1.1.4.tgz#2676db84da7aea921516d7da263dd6779a9ef117"
   integrity sha512-yX0dGMMyvhL9v5KQWbEx+zPlyMJEc50UNJL7xOqlxTdz5lXDlr3HlkademAZZBNuq90OrMRtWej/PREbk/gDhw==
@@ -595,7 +595,7 @@ tslib@^1.10.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-"ui5-0120@npm:@ui5/webcomponents":
+"ui5-0120@npm:@ui5/webcomponents@0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@ui5/webcomponents/-/webcomponents-0.12.0.tgz#98da24c74b409cb0eaaf1001983f30a5ece8dd3f"
   integrity sha512-l+aYHyG0gtmA8wUYol+P0ELWkH8HlSbet7N7XVTyP4qG60Nc8uLHzN3GwtwkQltcTDR/iVM+b9JZdl5zVzgN6g==
@@ -613,7 +613,7 @@ url-search-params-polyfill@^5.0.0:
   resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-5.1.0.tgz#f0405dcc2e921bf7f5fdf8c4e616f1e8088ef31b"
   integrity sha512-yjFY7uw2xRf9e8Mg4ZVkZwtp8dMCC4cbBkEIZiTDpuSY2WJ9+Quw0wRhxncv32qaMQwmBQT+P847rO8PrFhhDA==
 
-"weightless-0034@npm:weightless":
+"weightless-0034@npm:weightless@0.0.34":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/weightless/-/weightless-0.0.34.tgz#bb6a3902eebe0c829fddd1c1adc03b3e4d7c9428"
   integrity sha512-4DtRAW8/6g3NUp/8tHH4yuhbZdSP90r48HFSpd4rwAcAYjiva+xV+jz+KrIEBSF9k3ii216wGbfhqvijFPYjwQ==

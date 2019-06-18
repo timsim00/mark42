@@ -12,8 +12,8 @@
     <elix-style-button inner-class="f6 link  br2 ph3 pv2 mb2 dib white dim bg-green pointer"  id="btnTachyon">Elix Tachyon Button</elix-style-button>
     <elix-style-button disabled inner-class="f6 link  br2 ph3 pv2 mb2 dib white button-disabled bg-gray"  id="btnTachyonDisabled">Elix Tachyon Button</elix-style-button>
 
-    <elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
+    <elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Elix Construct Button</elix-construct-button>
+    <elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Elix Construct Button</elix-construct-button>
 
     <ui5-datepicker style="width: 150px;" id="myDatepicker1"></ui5-datepicker>
     <ui5-button id="ui5Button" type="Default">Enabled</ui5-button>
@@ -59,41 +59,41 @@
       this.shadowRoot.querySelector(this.selector).innerHTML = this._updateTemplate(this.templates[0].innerHTML, state)
 
 
-      // let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
-      // let css = '@import "/assets/bootstrap.min.css"'
-      // let style = document.createElement('style');
-      // style.appendChild(document.createTextNode(css));
-      // outerBtn.shadowRoot.querySelector('style').replaceWith(style)
+      let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
+      let css = '@import "/assets/bootstrap.min.css"'
+      let style = document.createElement('style');
+      style.appendChild(document.createTextNode(css));
+      outerBtn.shadowRoot.querySelector('style').replaceWith(style)
 
 
-      // this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
-      //   'Canary',
-      //   'Cat',
-      //   'Chicken',
-      //   'Chinchilla',
-      //   'Cockatiel',
-      //   'Cricket',
-      //   'Dog',
-      //   'Ferret',
-      //   'Finch',
-      //   'Fish',
-      //   'Frog',
-      //   'Gerbil',
-      //   'Guinea Pig',
-      //   'Hamster',
-      //   'Hermit Crab',
-      //   'Lizard',
-      //   'Mouse',
-      //   'Parakeet',
-      //   'Parrot',
-      //   'Pig',
-      //   'Rabbit',
-      //   'Rat',
-      //   'Snail',
-      //   'Snake',
-      //   'Spider',
-      //   'Turtle'
-      // ]
+      this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
+        'Canary',
+        'Cat',
+        'Chicken',
+        'Chinchilla',
+        'Cockatiel',
+        'Cricket',
+        'Dog',
+        'Ferret',
+        'Finch',
+        'Fish',
+        'Frog',
+        'Gerbil',
+        'Guinea Pig',
+        'Hamster',
+        'Hermit Crab',
+        'Lizard',
+        'Mouse',
+        'Parakeet',
+        'Parrot',
+        'Pig',
+        'Rabbit',
+        'Rat',
+        'Snail',
+        'Snake',
+        'Spider',
+        'Turtle'
+      ]
     }
   }
 </script>

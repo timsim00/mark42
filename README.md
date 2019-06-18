@@ -15,7 +15,7 @@ Experimental, WIP
 
 ```
 $ yarn install
-$ npm run paths
+$ npm run paths  (be prepared to run this after every any node_modules change)
 $ npm run start
 ```
 
@@ -68,6 +68,8 @@ Help make it better (criticism and PR's welcome).
 - https://dannymoerkerke.github.io/material-webcomponents
 - https://weightless.dev/elements
 
+(Some are faster than others.)
+
 
 ## Fine print
 
@@ -76,5 +78,6 @@ To enable deep linking we have to have a 1-1 correlation between the route and t
 Needs work:
 - Naming conventions/logic
 - [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) (esp. when using tachyons within shadowdom)
+  - Constructible style sheets are the answer for this?
 - Experiment with bundling core components/assets
 - [Support](https://github.com/WebReflection/document-register-element) for older browsers, [more](https://github.com/webcomponents/webcomponentsjs)
