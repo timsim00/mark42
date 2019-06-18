@@ -15,9 +15,7 @@ Experimental, WIP
 
 ```
 $ yarn install
-```
-For ui5 components, rename all import paths from "@ui5..." to "/node_modules/@ui5" in @ui5 and ui5-0120 folders
-```
+$ npm run paths
 $ npm run start
 ```
 
@@ -62,6 +60,13 @@ Help make it better (criticism and PR's welcome).
 - Small is better than large.
 - Scalable is better than hitting an upper limit.
 - Easy to reason about is better than hard to reason about.
+
+## Component Collections
+
+- https://sap.github.io/ui5-webcomponents/playground/
+- https://component.kitchen/elix
+- https://dannymoerkerke.github.io/material-webcomponents
+- https://weightless.dev/elements
 
 
 ## Fine print

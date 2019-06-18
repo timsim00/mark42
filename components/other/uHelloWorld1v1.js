@@ -18,60 +18,7 @@
     <ui5-datepicker style="width: 150px;" id="myDatepicker1"></ui5-datepicker>
     <ui5-button id="ui5Button" type="Default">Enabled</ui5-button>
 
-
-<!--
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-primary">Elix Bootstrap Button</elix-construct-button>
-    <elix-construct-button inner-class="btn btn-success">Elix Bootstrap Button</elix-construct-button>
--->
-
+    <wl-button>Weightless Button</wl-button>
 
   </div>
 </template>
@@ -83,6 +30,7 @@
   import '/components/elements/elix-construct/Button.js'
   import '/node_modules/ui5-0120/dist/Button.js'
   import '/node_modules/ui5-0120/dist/DatePicker.js'
+  import '/node_modules/weightless-0034/button/index.js'
 
   export default {
     elementName: 'app-uHelloWorld1v1',

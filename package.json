@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "PORT=3002 node server.js"
+    "start": "PORT=3002 node server.js",
+    "paths": "node convert_paths.js"
   },
   "repository": {
     "type": "git",
@@ -40,11 +41,14 @@
   "devDependencies": {
     "finalhandler": "^1.1.1",
     "http": "0.0.0",
+    "replace-in-file": "^4.1.0",
     "serve-static": "^1.13.2"
   },
   "dependencies": {
     "elix-602": "npm:elix",
     "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents",
-    "ui5-0120": "npm:@ui5/webcomponents"
+    "tslib": "^1.10.0",
+    "ui5-0120": "npm:@ui5/webcomponents",
+    "weightless-0034": "npm:weightless"
   }
 }
