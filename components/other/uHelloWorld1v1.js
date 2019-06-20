@@ -20,17 +20,33 @@
 
     <wl-button>Weightless Button</wl-button>
 
+
+    <material-drawer open id="comp-material-drawer">
+    </material-drawer>
+
+    <br>
+    <br>
+    <br>
+
+
   </div>
 </template>
 <script>
   import '/node_modules/moerkerke-mwc-114/src/material-checkbox.js'
-  // import '/components/elements/fancy-button.js'
   import '/components/elements/elix-style/AutoCompleteInput.js'
   import '/components/elements/elix-style/Button.js'
   import '/components/elements/elix-construct/Button.js'
   import '/node_modules/ui5-0120/dist/Button.js'
   import '/node_modules/ui5-0120/dist/DatePicker.js'
   import '/node_modules/weightless-0034/button/index.js'
+  // import '/node_modules/elix-602/src/FilterListBox.js'
+  import '/node_modules/moerkerke-mwc-114/src/material-drawer.js'
+  import '/node_modules/ui5-0120/dist/Panel.js'
+  import '/node_modules/ui5-0120/dist/List.js'
+  import '/node_modules/ui5-0120/dist/StandardListItem.js'
+  // import '/node_modules/ui5-0120/dist/CustomListItem.js'
+  // import '/node_modules/ui5-0120/dist/GroupHeaderListItem.js'
+
 
   export default {
     elementName: 'app-uHelloWorld1v1',
@@ -42,6 +58,34 @@
 
       this._insert()
       this.removeAttribute('hidden')
+
+      const self = this
+      fetch('/api/complist')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(compList) {
+        Object.keys(compList).forEach(key => {
+          let ui5Panel = document.createElement('ui5-panel')
+          ui5Panel.setAttribute('slot', 'content')
+          ui5Panel.setAttribute('accessible-role', 'Complementary')
+          ui5Panel.setAttribute('header-text', key)
+          ui5Panel.setAttribute('class', 'full-width')
+          ui5Panel.setAttribute('collapsed', 'true')
+
+          let ui5list = document.createElement('ui5-list')
+          ui5list.setAttribute('separators', 'None')
+          const drawer = self.shadowRoot.querySelector(self.selector).querySelector('#comp-material-drawer')
+          compList[key].forEach(compName => {
+            let ui5LI = document.createElement('ui5-li')
+            ui5LI.innerText = compName
+            ui5list.appendChild(ui5LI)
+          })
+          ui5Panel.appendChild(ui5list)
+          drawer.appendChild(ui5Panel)
+
+        })
+      })
     },
 
     onClick(e) {
