@@ -63,16 +63,30 @@ Help make it better (criticism and PR's welcome).
 
 ## Component Collections
 
-- https://sap.github.io/ui5-webcomponents/playground/
-- https://component.kitchen/elix
-- https://dannymoerkerke.github.io/material-webcomponents
-- https://weightless.dev/elements
-
-TODO:
-- https://github.com/adobe/coral-spectrum
-- https://stripe.com/payments/elements
+- [UI5](https://sap.github.io/ui5-webcomponents/playground/)
+- [Elix](https://component.kitchen/elix)
+- [Moerkerke](https://dannymoerkerke.github.io/material-webcomponents)
+- [Weightless](https://weightless.dev/elements)
 
 (Some are faster than others.)
+
+### TODO:
+- [Coral-Spectrum](https://github.com/adobe/coral-spectrum)
+- [Stripe](https://stripe.com/payments/elements)
+- [Costello](https://github.com/MikeCostello/bootstrap-web-components/tree/master/js)
+- [Morbidick](https://github.com/morbidick/bootstrap-webcomponents/tree/master/elements)
+- [Codepen](https://codepen.io/search/pens?q=web%20component&page=1&order=popularity&depth=everything)
+- [Aurelia Materalize](http://aurelia-ui-toolkits.github.io/demo-materialize/#/samples/catalog) +
+- [Aurelia.io plugin?](https://github.com/aurelia/web-components)
+- [Carbon Custom Elements](https://carbon-custom-elements.netlify.com)
+- [PatternFly / Redhat](https://github.com/patternfly/patternfly-elements/tree/master/elements)
+- [Material Components](https://github.com/material-components/material-components-web-components/tree/master/demos)
+- [Polymer](https://github.com/PolymerElements)
+- [Vaadin](https://github.com/vaadin/vaadin)
+- [Smart](https://github.com/HTMLElements)
+- [NPM search](https://www.npmjs.com/search?q=web%20component%20collection)
+
+
 
 
 ## Fine print
