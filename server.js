@@ -53,7 +53,7 @@ server.listen(port, function(){
 
 
 function returnComponentList(req, res) {
-  let ret = {"Elix": []}
+  let ret = {}
 
   function getFiles(collection, resolve, reject) {
     const directoryPath = path.join(__dirname, collection.path);
@@ -67,8 +67,18 @@ function returnComponentList(req, res) {
         ret[collection.name] = []
         files.forEach(function (file) {
             // Do whatever you want to do with the file
-            if (path.extname(file) === '.js' || (collection.folders && fs.statSync(path.join(__dirname, collection.path, file)).isDirectory())) {
-              ret[collection.name].push(file.replace('.js',''))
+            let filePath = path.join(__dirname, collection.path, file)
+            let fileURL = `/${path.join(collection.path, file)}`
+            let isDir = fs.statSync(filePath).isDirectory()
+            if (path.extname(file) === '.js' || (collection.folders && isDir)) {
+              let title = file.replace('.js','')
+              ret[collection.name].push({
+                title,
+                name: file,
+                path: fileURL,
+                isDir,
+                elName: `${collection.name.toLowerCase()}-${title.toLowerCase()}`
+              })
             }
         })
         resolve(true)

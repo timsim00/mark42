@@ -3,6 +3,11 @@
 
     <h3>Hello World View - loaded on demand</h3>...inside shadowdom
 
+    <div id="compContainer">
+
+    </div>
+
+<!--
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
     <elix-style-auto-complete-input inner-class="mw5 form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-style-auto-complete-input>
 
@@ -19,7 +24,7 @@
     <ui5-button id="ui5Button" type="Default">Enabled</ui5-button>
 
     <wl-button>Weightless Button</wl-button>
-
+-->
 
     <material-drawer open id="comp-material-drawer">
     </material-drawer>
@@ -61,10 +66,10 @@
 
       const self = this
       fetch('/api/complist')
-      .then(function(response) {
-        return response.json();
+      .then((response) => {
+        return response.json()
       })
-      .then(function(compList) {
+      .then((compList) => {
         Object.keys(compList).forEach(key => {
           let ui5Panel = document.createElement('ui5-panel')
           ui5Panel.setAttribute('slot', 'content')
@@ -76,9 +81,14 @@
           let ui5list = document.createElement('ui5-list')
           ui5list.setAttribute('separators', 'None')
           const drawer = self.shadowRoot.querySelector(self.selector).querySelector('#comp-material-drawer')
-          compList[key].forEach(compName => {
+          compList[key].forEach(comp => {
             let ui5LI = document.createElement('ui5-li')
-            ui5LI.innerText = compName
+            ui5LI.innerText = comp.title
+            ui5LI.dataset.title = comp.title
+            ui5LI.dataset.name = comp.name
+            ui5LI.dataset.path = comp.path
+            ui5LI.dataset.isDir = comp.isDir
+            ui5LI.dataset.elName = comp.elName
             ui5list.appendChild(ui5LI)
           })
           ui5Panel.appendChild(ui5list)
@@ -90,7 +100,22 @@
 
     onClick(e) {
       // let comp = this.querySelector(`#${e.target.id}`)
-      console.log('ONCLICK', e.target.id, this) //, !!comp.shadowRoot.adoptedStyleSheets.length)
+      console.log('ONCLICK', e.target.dataset.name, e.target) //, !!comp.shadowRoot.adoptedStyleSheets.length)
+
+      if (e.target.dataset.path) {
+        let comp = e.target
+        fetch(e.target.dataset.path)
+        .then((response) => {
+          console.log('ONCLICK2', comp.dataset.name, comp.dataset.elName)
+          let elem = document.createElement(comp.dataset.elName)
+          elem.innerText = comp.dataset.title
+          let container = this.querySelector('#compContainer')
+          container.innerHTML = ''
+          container.appendChild(elem)
+        })
+      }
+
+
       if (e.target.id === 'btnTachyon') {
         let outerBtn = this.querySelector('#btnTachyonDisabled')
         outerBtn.setAttribute('inner-class', outerBtn.getAttribute('inner-class').replace('button-disabled bg-gray', 'dim bg-green pointer'))
@@ -100,44 +125,44 @@
 
     render(state) {
       console.log('uHelloWorld1v1 render', this, this.selector, state)
-      this.shadowRoot.querySelector(this.selector).innerHTML = this._updateTemplate(this.templates[0].innerHTML, state)
-
-
-      let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
-      let css = '@import "/assets/bootstrap.min.css"'
-      let style = document.createElement('style');
-      style.appendChild(document.createTextNode(css));
-      outerBtn.shadowRoot.querySelector('style').replaceWith(style)
-
-
-      this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
-        'Canary',
-        'Cat',
-        'Chicken',
-        'Chinchilla',
-        'Cockatiel',
-        'Cricket',
-        'Dog',
-        'Ferret',
-        'Finch',
-        'Fish',
-        'Frog',
-        'Gerbil',
-        'Guinea Pig',
-        'Hamster',
-        'Hermit Crab',
-        'Lizard',
-        'Mouse',
-        'Parakeet',
-        'Parrot',
-        'Pig',
-        'Rabbit',
-        'Rat',
-        'Snail',
-        'Snake',
-        'Spider',
-        'Turtle'
-      ]
+      // this.shadowRoot.querySelector(this.selector).innerHTML = this._updateTemplate(this.templates[0].innerHTML, state)
+      //
+      //
+      // let outerBtn = this.shadowRoot.querySelector('#bootPrimary')
+      // let css = '@import "/assets/bootstrap.min.css"'
+      // let style = document.createElement('style');
+      // style.appendChild(document.createTextNode(css));
+      // outerBtn.shadowRoot.querySelector('style').replaceWith(style)
+      //
+      //
+      // this.shadowRoot.querySelector(this.selector).querySelector('#sampleAutoCompleteInput').texts = [
+      //   'Canary',
+      //   'Cat',
+      //   'Chicken',
+      //   'Chinchilla',
+      //   'Cockatiel',
+      //   'Cricket',
+      //   'Dog',
+      //   'Ferret',
+      //   'Finch',
+      //   'Fish',
+      //   'Frog',
+      //   'Gerbil',
+      //   'Guinea Pig',
+      //   'Hamster',
+      //   'Hermit Crab',
+      //   'Lizard',
+      //   'Mouse',
+      //   'Parakeet',
+      //   'Parrot',
+      //   'Pig',
+      //   'Rabbit',
+      //   'Rat',
+      //   'Snail',
+      //   'Snake',
+      //   'Spider',
+      //   'Turtle'
+      // ]
     }
   }
 </script>
