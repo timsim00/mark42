@@ -6,8 +6,8 @@
     <div id="compContainer">
 
     </div>
-
 <!--
+
     <material-checkbox id="myCheckbox" label="Subscribe" value="subscribe"></material-checkbox>
     <elix-style-auto-complete-input inner-class="mw5 form-control" id="sampleAutoCompleteInput" aria-label="Pet"></elix-style-auto-complete-input>
 
@@ -26,6 +26,12 @@
     <wl-button>Weightless Button</wl-button>
 -->
 
+<elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Primary</elix-construct-button>
+<elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Success</elix-construct-button>
+
+
+
+
     <material-drawer open id="comp-material-drawer">
     </material-drawer>
 
@@ -37,13 +43,13 @@
   </div>
 </template>
 <script>
-  import '/node_modules/moerkerke-mwc-114/src/material-checkbox.js'
-  import '/components/elements/elix-style/AutoCompleteInput.js'
-  import '/components/elements/elix-style/Button.js'
+  // import '/node_modules/moerkerke-mwc-114/src/material-checkbox.js'
+  // import '/components/elements/elix-style/AutoCompleteInput.js'
+  // import '/components/elements/elix-style/Button.js'
   import '/components/elements/elix-construct/Button.js'
-  import '/node_modules/ui5-0120/dist/Button.js'
-  import '/node_modules/ui5-0120/dist/DatePicker.js'
-  import '/node_modules/weightless-0034/button/index.js'
+  // import '/node_modules/ui5-0120/dist/Button.js'
+  // import '/node_modules/ui5-0120/dist/DatePicker.js'
+  // import '/node_modules/weightless-0034/button/index.js'
   // import '/node_modules/elix-602/src/FilterListBox.js'
   import '/node_modules/moerkerke-mwc-114/src/material-drawer.js'
   import '/node_modules/ui5-0120/dist/Panel.js'

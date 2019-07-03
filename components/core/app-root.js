@@ -10,7 +10,7 @@ The app-root module handles
   persisting state changes to localStorage,
   app-wide store creation
 */
-import '/components/core/Page.js'
+// import '/assets/Page.js'
 
 export default class AppRoot extends HTMLElement {
   static get elementName() {

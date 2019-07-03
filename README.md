@@ -76,7 +76,7 @@ Help make it better (criticism and PR's welcome).
 - [Costello](https://github.com/MikeCostello/bootstrap-web-components/tree/master/js)
 - [Morbidick](https://github.com/morbidick/bootstrap-webcomponents/tree/master/elements)
 - [Codepen](https://codepen.io/search/pens?q=web%20component&page=1&order=popularity&depth=everything)
-- [Aurelia Materalize](http://aurelia-ui-toolkits.github.io/demo-materialize/#/samples/catalog) +
+- [Aurelia Materialize](http://aurelia-ui-toolkits.github.io/demo-materialize/#/samples/catalog) +
 - [Aurelia.io plugin?](https://github.com/aurelia/web-components)
 - [Carbon Custom Elements](https://carbon-custom-elements.netlify.com)
 - [PatternFly / Redhat](https://github.com/patternfly/patternfly-elements/tree/master/elements)
@@ -85,6 +85,7 @@ Help make it better (criticism and PR's welcome).
 - [Vaadin](https://github.com/vaadin/vaadin)
 - [Smart](https://github.com/HTMLElements)
 - [NPM search](https://www.npmjs.com/search?q=web%20component%20collection)
+- [Oracle JET](https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html)
 
 
 

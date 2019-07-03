@@ -180,7 +180,7 @@ window.loadMicroApp = ( function() {
 		})
     .then( ( content )  => {
       console.log(`PRE-PROCESSING: ${options.URL}`)
-            
+
       // avoid the error: "Invalid relative url or base scheme isn't hierarchical"
       content = content.replace(/import \'/g, `import \'${location.origin}`) // single quotes
       content = content.replace(/import \"/g, `import \"${location.origin}`) // double quotes
@@ -322,7 +322,7 @@ window.loadMicroApp = ( function() {
             // adopt the non-boilerplate methods
             Object.keys(module.default).forEach(key => {
               if (!this.constructor.prototype.hasOwnProperty(key) && typeof(module.default[key]) === 'function' && !key.startsWith('on')) {
-                console.log('>>> adopting:', key)
+                console.log('>>> adopting:', key, fileName)
                 this.constructor.prototype[key] = module.default[key]
               }
             })

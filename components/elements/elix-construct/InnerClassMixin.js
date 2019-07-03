@@ -7,8 +7,9 @@ export default function InnerClassMixin(Base) {
 
     get defaultState() {
       return Object.assign(super.defaultState, {
-        innerClass: null
+        innerClass: null // 'btn btn-primary'
       });
+      // this.innerClass = null;
     }
 
     get innerClass() {
