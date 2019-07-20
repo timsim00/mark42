@@ -18,6 +18,12 @@ let options = {
     /lit-html\/directives\/repeat"/g,
     /lit-html\/directives\/class-map"/g,
     /lit-html\/directives\/style-map"/g,
+    /from '.\/i18n\/translations'/g,
+    /from '..\/coral-utils'/g,
+    /from \'.\/src\/scripts\/Tag\'/g,
+    /from \'.\/src\/scripts\/TagLabel\'/g,
+    /from \'.\/src\/scripts\/TagList\'/g,
+    /from \'.\/component-chip\'/g
   ],
   to: [
     'import "/node_modules/@ui5',
@@ -35,7 +41,13 @@ let options = {
     'from \'/node_modules/@a11y/focus-trap/debounce.js\'',
     'lit-html/directives/repeat.js"',
     'lit-html/directives/class-map.js"',
-    'lit-html/directives/style-map.js"'
+    'lit-html/directives/style-map.js"',
+    'from \'./i18n/translations.js\'',
+    'from \'../coral-utils/index.js\'',
+    'from \'./src/scripts/Tag.js\'',
+    'from \'./src/scripts/TagLabel.js\'',
+    'from \'./src/scripts/TagList.js\'',
+    'from \'./component-chip.js\''
   ]
 };
 
@@ -85,6 +97,8 @@ walkSync('node_modules/ui5-0120')
 walkSync('node_modules/weightless-0034')
 walkSync('node_modules/lit-element')
 walkSync('node_modules/lit-html')
+walkSync('node_modules/coral-100b82')
+walkSync('node_modules/_gulick/chip-input-021/source')
 
 
 options = {

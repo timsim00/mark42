@@ -22,7 +22,7 @@ var server = http.createServer(function onRequest (req, res) {
     returnComponentList(req, res)
   } else {
     var done = finalhandler(req, res, { onerror: logerror })
-    var routes = ['/assets', '/components', '/node_modules']
+    var routes = ['/assets', '/components', '/node_modules', '/bower_components']
     var notindex = routes.filter(el => req.url.includes(el))
     if (notindex.length === 0) {
       // return index.html for deep link routes that aren't known files (routes array)
@@ -89,7 +89,10 @@ function returnComponentList(req, res) {
     {name: 'Elix', path: 'node_modules/elix-602/src', exclude: []},
     {name: 'Moerkerke', path: 'node_modules/moerkerke-mwc-114/src', exclude: ['bundle', 'router']},
     {name: 'UI5', path: 'node_modules/ui5-0120/dist'},
-    {name: 'Weightless', path: 'node_modules/weightless-0034', folders: true}
+    {name: 'Weightless', path: 'node_modules/weightless-0034', folders: true},
+    {name: 'Coral', path: 'node_modules/coral-100b82', folders: true},
+    {name: 'Gulick', path: 'node_modules/_gulick/chip-input-021/source'},
+    {name: 'Nuclei', path: 'node_modules/_nuclei/material-input-116/src'}
   ]
   var fn = function (collection){
       return new Promise((resolve,reject) => getFiles(collection, resolve, reject))

@@ -1,4 +1,5 @@
 <template>
+  <!--
   <div class="mw6 mw8-ns ph4-ns ph3 pv3 center overflow-scroll h-100">
     Frameworkless, buildless, single-page, micro-frontend, web component <strong>pattern</strong>
     <ul>
@@ -10,6 +11,16 @@
       <li>Scalable is better than hitting an upper limit</li>
       <li>Easy to reason about is better than hard to reason about</li>
     </ul>
+  </div>
+  -->
+  <div class="contact-clean">
+      <form method="post">
+          <h2 class="text-center">Contact us</h2>
+          <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name" /></div>
+          <div class="form-group"><input type="email" class="form-control is-invalid" name="email" placeholder="Email" /><small class="form-text text-danger">Please enter a correct email address.</small></div>
+          <div class="form-group"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea></div>
+          <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+      </form>
   </div>
 </template>
 <script>
@@ -33,5 +44,8 @@
 
 </script>
 <style>
-
+  @import "/assets/bootstrap.min.css";
+  .contact-clean {
+    padding: 20px 0;
+  }
 </style>

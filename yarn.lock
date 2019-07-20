@@ -7,6 +7,21 @@
   resolved "https://registry.yarnpkg.com/@a11y/focus-trap/-/focus-trap-1.0.2.tgz#2b5deed2b0f975ddef69c7b401933f67ca05093f"
   integrity sha512-5/Wp7UwuUxi5/3nNB+V8bj76BWsxfl9D4Y5+k8SQk/279Yrd0omxHdiU4DMhfnNowPMKWVmWnDD6b7NMqrKf4w==
 
+"@adobe/focus-ring-polyfill@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@adobe/focus-ring-polyfill/-/focus-ring-polyfill-0.1.5.tgz#b20b5bd1ffb0ceaf42aae1f0837f39ce29f9eb9b"
+  integrity sha512-OLa/TlzPv6vzMPi3DT9/Gefu/HJptcBcFmMYTpeNTZ6Y+t2TL+CZtjGlu438O2V03c86KEEgMlm9nQ70kW3bPw==
+
+"@adobe/spectrum-css@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@adobe/spectrum-css/-/spectrum-css-2.13.0.tgz#7f8ef0ab74f974fedc80d41764f9b7ca56e3b74f"
+  integrity sha512-v7IJPfWJ2mkq+y7oI/ghpn7ykWHFZoIrcI+ZFnhbt0W2GEbtD0oscQcZHBLUA99AlCCBL2Vi7M3p7dmvB38RQQ==
+
+"@adobe/vent@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@adobe/vent/-/vent-1.0.0.tgz#9ea2bcc1a983f97aa9a4f5a6a8d767092a0e63ac"
+  integrity sha512-WiEd5Ql/uohhO2xYpPyq/kSFs+QfTQqXTB7QTUZR+sQrSGUmxw0ecapl8JmbZJXQ9D9KlrSgmAjDzoewsPi2YQ==
+
 "@ui5/webcomponents-base@0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@ui5/webcomponents-base/-/webcomponents-base-0.12.0.tgz#5b382fdbac4b5b839452f1df4e4376aee309a7dc"
@@ -26,6 +41,18 @@
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.3.3.tgz#5bb82a0d3210c836bd4623e13a4a93145cb9dc27"
   integrity sha512-eLH04VBMpuZGzBIhOnUjECcQPEPcmfhWEijW9u1B5I+2PPYdWf3vWUExdDxu4Y3GljRSTCOlWnGtS9tpzmXMyQ==
+
+"_gulick/chip-input-021@npm:chip-input@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/chip-input/-/chip-input-0.2.1.tgz#8e2328711bc642dca89b73a2e16fdcf31f32aed6"
+  integrity sha512-T0aPyJ6HLhrqyt4sD6pOni3W3WTsshvceNL2KkmsFulZszxBPWLIx2MD1+pNrBSc3PAXPTvsGmCxWTdVz1pTzg==
+  dependencies:
+    lit-element "^2.1.0"
+
+"_nuclei/material-input-116@npm:material-input@1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/material-input/-/material-input-1.1.6.tgz#3539a5daa7e97cc87e82047acadd6f5b05768e42"
+  integrity sha1-NTml2qfpfMh+ggR6yt1vWwV2jkI=
 
 ansi-regex@^4.1.0:
   version "4.1.0"
@@ -92,6 +119,25 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
+"coral-100b82@npm:@adobe/coral-spectrum@1.0.0-beta.82":
+  version "1.0.0-beta.82"
+  resolved "https://registry.yarnpkg.com/@adobe/coral-spectrum/-/coral-spectrum-1.0.0-beta.82.tgz#9f720310f624a607e3079aa0f19a4a07601ea22a"
+  integrity sha512-J9UHVqc//OO1xH8nF/xcf136L06mVrBlAZNW6XV2FS+XTY2Y7cnH28xku7Y0MXZuJmgzQ6LYFuETIz5b5bCeVw==
+  dependencies:
+    "@adobe/focus-ring-polyfill" "0.1.5"
+    "@adobe/spectrum-css" "2.13.0"
+    "@adobe/vent" "1.0.0"
+    core-js "2.6.5"
+    document-register-element "1.13.1"
+    normalize.css "8.0.1"
+    popper.js "1.14.0"
+    resize-observer-polyfill "1.5.1"
+
+core-js@2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+  integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
+
 cross-spawn@^6.0.0:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
@@ -124,6 +170,13 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+
+document-register-element@1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.13.1.tgz#dad8cb7be38e04ee3f56842e6cf81af46c1249ba"
+  integrity sha512-92ZyLDKg9j4rOll//NNXj25f+8rAzOkYsGJonhugKwXfeqH7bzs8Ucpvey0WzZ2ZzKdrvW9RnUw3UyOZ/uhBFw==
+  dependencies:
+    lightercollective "^0.1.0"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -295,6 +348,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+lightercollective@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.1.0.tgz#70df102c530dcb8d0ccabfe6175a8d00d5f61300"
+  integrity sha512-J9tg5uraYoQKaWbmrzDDexbG6hHnMcWS1qLYgJSWE+mpA3U5OCSeMUhb+K55otgZJ34oFdR0ECvdIb3xuO5JOQ==
+
 lit-element@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.2.0.tgz#e853be38021f0c7743a10180affdf84b8a02400c"
@@ -369,6 +427,11 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+normalize.css@8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -454,6 +517,11 @@ path-key@^2.0.0, path-key@^2.0.1:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
+popper.js@1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.0.tgz#3d73132100c83bfdc5fabb4769be925f57e59dc2"
+  integrity sha1-PXMTIQDIO/3F+rtHab6SX1flncI=
+
 pump@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
@@ -490,6 +558,11 @@ require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
+
+resize-observer-polyfill@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 semver@^5.5.0:
   version "5.7.0"

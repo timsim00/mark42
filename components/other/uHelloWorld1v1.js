@@ -29,7 +29,13 @@
 <elix-construct-button id="bootConPrimary" inner-class="btn btn-primary">Primary</elix-construct-button>
 <elix-construct-button id="bootConSuccess" inner-class="btn btn-success">Success</elix-construct-button>
 
+<app-chip-input></app-chip-input>
+<material-textfield type="text" label="Short Description" error-required="This field is required"></material-textfield>
+<material-button label="Confirm"></material-button>
 
+
+<br>
+<br>
 
 
     <material-drawer open id="comp-material-drawer">
@@ -57,6 +63,14 @@
   import '/node_modules/ui5-0120/dist/StandardListItem.js'
   // import '/node_modules/ui5-0120/dist/CustomListItem.js'
   // import '/node_modules/ui5-0120/dist/GroupHeaderListItem.js'
+  // import '/node_modules/coral-100b82/coral-component-taglist/index.js'
+  // import '/bower_components/nuxeo-ui-elements/widgets/nuxeo-tags.html'
+  // import 'https://static.oracle.com/cdn/jet/v7.0.1/default/js/min/ojselectcombobox.js'
+  import '/node_modules/_gulick/chip-input-021/source/component-chip-input.js'
+  import '/node_modules/_nuclei/material-input-116/src/material-input.js'
+  import '/node_modules/moerkerke-mwc-114/src/material-textfield.js'
+  import '/node_modules/moerkerke-mwc-114/src/material-button.js'
+
 
 
   export default {

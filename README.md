@@ -67,11 +67,14 @@ Help make it better (criticism and PR's welcome).
 - [Elix](https://component.kitchen/elix)
 - [Moerkerke](https://dannymoerkerke.github.io/material-webcomponents)
 - [Weightless](https://weightless.dev/elements)
+- [Nuclei](https://github.com/nuclei/material-input)
+- [Gulick](https://www.npmjs.com/package/chip-input)
 
 (Some are faster than others.)
 
 ### TODO:
-- [Coral-Spectrum](https://github.com/adobe/coral-spectrum)
+- [Mailjet MJML](https://github.com/mjmlio/mjml/tree/master/packages) [and](https://mjml.io/documentation/#standard-body-components) [and](https://github.com/artf/grapesjs-mjml) [and](https://grapesjs.com/demo-mjml.html)
+- [Coral-Spectrum](https://github.com/adobe/coral-spectrum) [github](https://github.com/adobe/coral-spectrum)
 - [Stripe](https://stripe.com/payments/elements)
 - [Costello](https://github.com/MikeCostello/bootstrap-web-components/tree/master/js)
 - [Morbidick](https://github.com/morbidick/bootstrap-webcomponents/tree/master/elements)
@@ -85,9 +88,17 @@ Help make it better (criticism and PR's welcome).
 - [Vaadin](https://github.com/vaadin/vaadin)
 - [Smart](https://github.com/HTMLElements)
 - [NPM search](https://www.npmjs.com/search?q=web%20component%20collection)
-- [Oracle JET](https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html)
+- [Oracle JET](https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html) [min](https://www.oracle.com/webfolder/technetwork/jet/oj/v7.0.1/3rdparty/webcomponents/custom-elements.min.js) [github](https://github.com/oracle/oraclejet)
+- [Nuxeo](https://github.com/nuxeo/nuxeo-elements/tree/master/ui)
+- [Ionic](https://github.com/ionic-team/ionic/tree/master/core)
+- [Vaadin](https://github.com/vaadin/vaadin-core/blob/master/vaadin-core.js)
+- [Material Chip Input](https://www.npmjs.com/package/material-ui-chip-input)
+- [Paper chip input](https://www.npmjs.com/package/@advanced-rest-client/paper-chip-input)
+- [Aybolit](https://github.com/web-padawan/aybolit)
 
 
+### UI Patterns
+- [flowstate](https://miksovsky.blogs.com/flowstate/2013/07/how-many-general-purpose-ui-components.html)
 
 
 ## Fine print

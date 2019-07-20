@@ -49,6 +49,9 @@
     "moerkerke-mwc-114": "npm:@dannymoerkerke/material-webcomponents@1.1.4",
     "tslib": "^1.10.0",
     "ui5-0120": "npm:@ui5/webcomponents@0.12.0",
-    "weightless-0034": "npm:weightless@0.0.34"
+    "weightless-0034": "npm:weightless@0.0.34",
+    "coral-100b82": "npm:@adobe/coral-spectrum@1.0.0-beta.82",
+    "_gulick/chip-input-021": "npm:chip-input@0.2.1",
+    "_nuclei/material-input-116": "npm:material-input@1.1.6"
   }
 }
