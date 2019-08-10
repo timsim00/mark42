@@ -16,6 +16,9 @@
           <div class="dib">
             <span id="btnAbout" name="about" class="tr fr mr4 dim pointer link">About</span>
             <span id="btnApp" name="app" class="tr fr mr4 dim pointer link">Test</span>
+            <span name="pen" class="tr fr mr6 dim pointer link">
+              <material-checkbox id="chkPen42" label="pen42" value="pen42"></material-checkbox>
+            </span>
           </div>
         </nav>
       </div>
@@ -23,6 +26,7 @@
   </div>
 </template>
 <script>
+  import '/node_modules/moerkerke-mwc-114/src/material-checkbox.js'
   export default {
     elementName: 'core-nav',
     name: 'CoreNav',
@@ -50,7 +54,91 @@
       } else if (h1 && h1.id === 'app-title') {
         e.preventDefault()
         this.store.dispatch('app:REQUEST_VIEW', {route: '/', view: 'core/landing', elementName: 'core-landing'})
+      } else if (e.target.id === 'chkPen42') {
+        if (!document.querySelector(`#${e.target.id}`).checked) {
+          document.querySelector(`#banner`).classList.add('dn')
+          this.addPen42();
+          // document.querySelector(`#banner`)
+        } else {
+          this.removePen42();
+        }
       }
+    },
+
+    addPen42() {
+      // if (!window.pen42editor) {
+      // console.log('html', document.getElementById('CoreMain_template').innerHTML)
+      // delete window.pen42editor
+        window.pen42editor = grapesjs.init({
+            container : '#pen42', //'#CoreMain_template', //
+            // fromElement: true,
+            components: document.getElementById('CoreMain_template').innerHTML,
+            // style: '.txt-red{color: red}',
+            storageManager: {
+              id: 'gjs-',
+              type: 'local',
+              // autosave: false,
+              autoload: false,
+            }
+        })
+      // }
+      document.getElementById('pen42').classList.remove('dn')
+
+      //   // console.log('Add', html);
+      //
+      //   var div = document.getElementById("CoreMain_template");
+      //   if (!div) {
+     	//     div = document.createElement('div');
+      //     div.id = 'gjs';
+      //     document.body.appendChild(div);
+      //
+      //     editor = grapesjs.init({
+      //     container: '#CoreMain_template',
+      //     colorPicker: { appendTo: 'body' },
+      //     domComponents: {
+      //       wrapper: {
+      //         badgable: false,
+      //         copyable: false,
+      //         draggable: false,
+      //         droppable: false,
+      //         components: [],
+      //         highlightable: false,
+      //         hoverable: false,
+      //         movable: false,
+      //         removable: false,
+      //         traits: [],
+      //         stylable: false,
+      //       },
+      //     },
+      //     fromElement: 1,
+      //     height: '100%',
+      //     layerManager: { root: 'sqh-global-container', showWrapper: 1, },
+      //     noticeOnUnload: 0,
+      //     plugins: ['grapesjs-test'],
+      //     //showDevices: 0,
+      //     //showOffsets: 1,
+      //     //storageManager: { autoload: 0 },
+      //     components:html
+     	// 	});
+      // }
+    },
+
+    removePen42() {
+      document.querySelector(`#banner`).classList.remove('dn')
+      document.getElementById('pen42').classList.add('dn')
+      // delete window.pen42editor
+      // window.pen42editor = null
+
+      // if (window.pen42editor) {
+      //     // html = editor.getHtml();
+      //     // console.log('Remove', html);
+      //
+      //     // let element = document.getElementById('pen42');
+      //     // if (element) {
+      //         document.getElementById('pen42editor').classList.add('dn') // element.remove();
+      //     // }
+      //     pen42 = null;
+      // }
     }
 
 

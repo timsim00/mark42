@@ -269,6 +269,7 @@ export default class AppRoot extends HTMLElement {
         <core-nav hidden id="coreNav"></core-nav>
         <div class="page-content">
           <core-header hidden id="coreHeader"></core-header>
+          <div id="pen42" class="dn"></div>
           <core-main hidden id="coreMainContent"></core-main>
           <core-footer hidden id="coreFooter"></core-footer>
         </div>

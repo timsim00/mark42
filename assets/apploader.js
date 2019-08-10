@@ -296,6 +296,7 @@ window.loadMicroApp = ( function() {
         class extends HTMLElement {
 
           connectedCallback() {
+            console.log('connectedCallback', elementName)
             // console.assert(this.id, 'Custom Elements must have an id.')
             this.templates = templates
             this.styleClone = style.cloneNode( true )

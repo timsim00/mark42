@@ -1,9 +1,9 @@
 <template>
-  <div class="tc">
+  <div id="banner" class="tc">
     <div class="white landing-black db">
       <div class="bg-neutral color-white w-100 center">
-        <section class="tc pa3">
-          <h1 class="f3 f2-m f1-l fw2 mv3 tracked">
+        <section class="tc pa1">
+          <h1 class="f3 f2-m f1-l fw2 mv1 tracked">
               {{app.orgName}}
           </h1>
         </section>
