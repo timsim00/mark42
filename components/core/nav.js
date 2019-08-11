@@ -65,23 +65,56 @@
       }
     },
 
+    myPlugin(editor) {
+      /*
+      TODO:
+      - canvas recognize tachyons css (or change to vanilla css)
+      - save changes (node api)
+      - 
+      */
+      window.pen42editor.BlockManager.add('my-first-block', {
+        category: 'Moerkerke',
+        label: 'Checkbox',
+        content: '<material-checkbox label="Checkbox"></material-checkbox>',
+      });
+    },
+
     addPen42() {
-      // if (!window.pen42editor) {
-      // console.log('html', document.getElementById('CoreMain_template').innerHTML)
-      // delete window.pen42editor
-        window.pen42editor = grapesjs.init({
-            container : '#pen42', //'#CoreMain_template', //
-            // fromElement: true,
-            components: document.getElementById('CoreMain_template').innerHTML,
-            // style: '.txt-red{color: red}',
-            storageManager: {
-              id: 'gjs-',
-              type: 'local',
-              // autosave: false,
-              autoload: false,
-            }
-        })
-      // }
+
+      window.pen42editor = grapesjs.init({
+          container : '#pen42', //'#CoreMain_template', //
+          noticeOnUnload: false,
+          // fromElement: true,
+          components: document.getElementById('CoreMain_template').innerHTML,
+          // style: '.txt-red{color: red}',
+          storageManager: {
+            id: 'gjs-',
+            type: 'local',
+            // autosave: false,
+            autoload: false,
+          },
+          plugins: ['gjs-blocks-basic'],
+          pluginsOpts: {
+            'gjs-blocks-basic': {flexGrid: true}
+          }
+
+          // storageManager: {
+          //   type: 'remote',
+          //   stepsBeforeSave: 10,
+          //   urlStore: 'http://store/endpoint',
+          //   urlLoad: 'http://load/endpoint',
+          //   params: {}, // Custom parameters to pass with the remote storage request, eg. CSRF token
+          //   headers: {}, // Custom headers for the remote storage request
+          // }
+      })
+      this.myPlugin()
+
+      // window.pen42editor = grapesjs.init({
+      //   container : '#pen42',
+      //   plugins: [this.myPlugin],
+      //   pluginsOpts: {}
+      // })
+
       document.getElementById('pen42').classList.remove('dn')
 
       //   // console.log('Add', html);
